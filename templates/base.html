@@ -9,18 +9,27 @@
 	<header class="banner">
 		<nav class="menu">
 			<ul>
-				<li><a href="{{url_for('main.index')}}">Home</a></li>
-				{% if current_user.is_authenticated %}
-				<li><a href="{{url_for('main.dashboard')}}">Dashboard</a></li>
-				{% endif %}
+				<!-- First Part -->
+				<!-- Index page navigation -->
+				<li></li>
+				<li></li>
+				<!-- Second Part -->
+				<!-- Website Logo & Link to Main -->
+				<li><a href="{{url_for('main.index')}}">OfferTracer</a></li>
+				<!-- Third Part -->
+				<!-- If not logged in -->
 				{% if not current_user.is_authenticated %}
 				<li><a href="{{url_for('auth.login')}}">Login</a></li>
 				{% endif %}
 				{% if not current_user.is_authenticated %}
 				<li><a href="{{url_for('auth.signup')}}">Sign Up</a></li>
 				{% endif %}
+				<!-- If Logged in -->
 				{% if current_user.is_authenticated %}
 				<li><a href="{{url_for('auth.logout')}}">Logout</a></li>
+				{% endif %}
+				{% if current_user.is_authenticated %}
+				<li><a href="{{url_for('main.dashboard')}}">Dashboard</a></li>
 				{% endif %}
 			</ul>
 		</nav>
