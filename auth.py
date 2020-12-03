@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, redirect, url_for, request, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, logout_user, login_required
 from models import User
-from app import db
+from app import db, bcrypt
 
 auth = Blueprint('auth', __name__)
 
@@ -18,7 +18,7 @@ def login_post():
 	user = User.query.filter_by(email=email).first()
 
 	#if no user is found or the password is wrong
-	if not user or not check_password_hash(user.password, password):
+	if not user or not bcrypt.check_password_hash(user.password, password):
 		flash('Your username or password is incorrect, please try again')
 		return redirect(url_for('auth.login'))
 
@@ -44,11 +44,10 @@ def signup_post():
 		return redirect(url_for('auth.signup'))
 
 	#when the user is new
-	new_user = User(email=email, name=name, password=generate_password_hash(password, method="sha256"))
-
+	new_user = User(email=email, name=name, password=bcrypt.generate_password_hash(password).decode('utf-8'))
 	db.session.add(new_user)
 	db.session.commit()
-
+	flash('Successfully signed up. Please log in.')
 	return redirect(url_for('auth.login'))
 
 @auth.route('/logout')
