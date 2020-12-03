@@ -28,9 +28,8 @@
 				<!-- If Logged in -->
 				{% if current_user.is_authenticated %}
 				<li><a href="{{url_for('auth.logout')}}">Logout</a></li>
-				{% endif %}
-				{% if current_user.is_authenticated %}
 				<li><a href="{{url_for('main.dashboard')}}">Dashboard</a></li>
+				<li><a href="{{url_for('main.account')}}">Account</a></li>
 				{% endif %}
 			</ul>
 		</nav>
