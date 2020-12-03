@@ -1,5 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>My Account, {{ name }}</h1>
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{{ messages[0] }}
+		{% endif %}
+	{% endwith %}
+
+	<h2>{{current_user.name}}</h2>
+	<p>{{current_user.email}}</p>
+
+	<form method="POST" action="/account">
+	<label for="email">Email:</label><input type="email" name="email" id="email" value="{{current_user.email}}" required>
+	<label for="name">Name:</label><input type="text" name="name" id="name" value="{{current_user.name}}" required>
+	<!--<label for="password">Password:</label><input type="password" name="password" id="password" required placeholder="Enter Your Password">-->
+	<input type="submit" value="Update" class="submit" id="submit">
+</form>
 {% endblock %}
