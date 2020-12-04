@@ -28,6 +28,14 @@ html, body, .container{
 	align-items: center;
 }
 
+.containAlignCenter {
+	margin: 0 auto;
+	align-self: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
 /* First Section*/
 #first {
 	background-image: url(../images/background.png);
@@ -60,4 +68,18 @@ html, body, .container{
 	color: white;
 	text-decoration: underline;
 	font-size: 20px;
+}
+
+/*Second Section*/
+.aboutText {
+	width: 70%;
+	text-align: center;
+}
+
+.aboutText h2 {
+	font-size: 24px;
+}
+
+#user2, #user3 {
+	display: none;
 }
