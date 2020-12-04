@@ -214,6 +214,65 @@ ul {
 .userImage3 {
 	width: 600px;
 }
+/*
+----------------End---------------
+*/
+
+
+/*--------------------------------
+		Third Section
+/*--------------------------------*/
+.goal {
+	margin-left: 40px;
+	margin-right: 40px;
+}
+
+.goalContent figure {
+	margin: 0 auto;
+	align-self: center;
+}
+
+.goalContent img{
+	width: 40%;
+}
+
+.goal1 {
+	background-image: url(../images/pinkshape.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+.goal2 {
+	background-image: url(../images/yellowshape.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+.goal3 {
+	background-image: url(../images/blueshape.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+/*
+----------------End---------------
+*/
+
+
+/*--------------------------------
+		Third Section
+/*--------------------------------*/
+
+
+
+/*
+----------------End---------------
+*/
+
+
 
 /* Miscllaneous*/
 @keyframes fadeIn {
