@@ -7,6 +7,14 @@ html, body, .container{
 	height: 100%;
 }
 
+li {
+	list-style: none;
+}
+
+ul {
+	padding-left: 0;
+}
+
 .sectionContainer {
 	margin: 0 auto;
 	width: 100%;
@@ -36,7 +44,9 @@ html, body, .container{
 	justify-content: center;
 }
 
-/* First Section*/
+/*--------------------------------
+		First Section
+/*--------------------------------*/
 #first {
 	background-image: url(../images/background.png);
 	background-repeat: no-repeat;
@@ -69,21 +79,127 @@ html, body, .container{
 	text-decoration: underline;
 	font-size: 20px;
 }
+/*
+----------------End---------------
+*/
 
-/*Second Section*/
+
+
+/*--------------------------------
+		Second Section
+/*--------------------------------*/
+/* Section wise*/
+#second {
+	background-color: #faf8f6;
+	position: relative;
+	padding-bottom: 150px;
+}
+
+/* About Part */
 .aboutText {
 	width: 70%;
 	text-align: center;
+	padding-top: 100px;
+	padding-bottom: 50px;
 }
 
 .aboutText h2 {
 	font-size: 24px;
 }
 
+/* User Part */
 #user2, #user3 {
 	display: none;
 }
 
+.content22 {
+	position: relative;
+	display: grid;
+	grid-template-columns: 1.5fr 1fr;
+	padding-top: 150px;
+}
+
+/* User Text */
+.userText {
+	background-color: white;
+	padding-right: 60px;
+	padding-left: 80px;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	width: 450px;
+	height: 350px;
+	position: absolute;
+	top: 85px;
+	left: 550px;
+}
+
+.userText h3 {
+	text-transform: uppercase;
+	font-size: 28px;
+	letter-spacing: 2px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+.userTitle {
+	color: #e06253;
+}
+
+.userText p {
+	margin-top: 0px;
+	color: #97917f;
+	font-size: 15px;
+	margin-bottom: 40px;
+}
+
+.user li {
+	background-image: url(../images/listpin.png);
+	background-repeat: no-repeat;
+	background-position: left;
+	background-size: contain;
+	padding-left: 30px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+/* Button */
+.buttonSecond {
+	text-align: center;
+	align-self: flex-end;
+	padding-bottom: 30px;
+}
+
+#button21, #button22, #button23 {
+	width: 110px;
+	background-color: lightgrey;
+	border-radius: 0;
+	height: 5px;
+	outline: none;
+	border-style: none;
+	margin-right: 20px;
+	margin-left: 20px;
+	cursor: pointer;
+}
+
+#button21 {
+	background-color: #e06253;
+}
+
+/* Image */
 .userImage1 {
-	
+	position: absolute;
+	width: 250px;
+	top: 25px;
+	left: 200px;
+}
+
+.userImage2 {
+	position: absolute;
+	left: -30px;
+	top: 135px;
+	width: 250px;
+}
+
+.userImage3 {
+	width: 600px;
 }
