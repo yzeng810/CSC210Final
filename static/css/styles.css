@@ -273,7 +273,7 @@ ul {
 /*--------------------------------*/
 #forth {
 	/*background-color: #c0b0b8;*/
-	background-color: #e5dfe2;
+	background-color: #d3c9ce;
 }
 
 .accContent {
@@ -289,6 +289,10 @@ ul {
 	font-weight: bolder;
 }
 
+.accAll {
+	color: #e06253;
+	border-bottom: 8px double #e06253;
+}
 /* Sim Web */
 #accManage, #accCustomize {
 	display: none;
@@ -330,7 +334,7 @@ ul {
 }
 
 #button41 {
-	background-color: #ebdfe0;
+	background-color: white;
 }
 
 #button42 {
