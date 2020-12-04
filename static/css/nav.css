@@ -1,0 +1,84 @@
+.menu {
+	position: fixed;
+	background-color: transparent;
+	top: 0;
+	z-index: 1000;
+	width: 100%;
+	overflow: hidden;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+
+.menu a {
+	text-decoration: none;
+	font-family: 'Poppins', sans-serif;
+}
+
+.title {
+	margin: 0 auto;
+	align-self: center;
+	text-align: center;
+}
+
+.m1 {
+	padding-left: 40px;
+	padding-top: 11px;
+}
+
+.m2 {
+	padding-right: 40px;
+	text-align: right;
+	padding-top: 11px;
+}
+
+.navSignup {
+	padding: 15px;
+	padding-left: 30px;
+	padding-right: 30px;
+	background-color: #e06253;
+	border-radius: 30px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.navSignup span {
+	color: white;
+}
+
+.title a {
+	font-size: 28px;
+	font-weight: bolder;
+}
+
+.m1 a, .m2 a {
+	text-transform: uppercase;
+	margin-left: 25px;
+	margin-right: 25px;
+	font-size: 15px;
+	letter-spacing: 1.5px;
+}
+
+.navSignup span:visited {
+	color: white;
+}
+
+.navSignup span:hover {
+	color: white;
+}
+
+.menu:hover {
+	background-color: white;
+}
+
+.menu a:hover {
+	text-decoration: none;
+	color: currentColor;
+}
+
+.menu a:visited {
+	text-decoration: none;
+	color: currentColor;
+}
+

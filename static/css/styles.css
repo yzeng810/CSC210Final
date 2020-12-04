@@ -1,0 +1,63 @@
+/* General Setup*/
+/** {
+	border: 1px solid hotpink;
+}*/
+html, body, .container{
+	margin: 0;
+	height: 100%;
+}
+
+.sectionContainer {
+	margin: 0 auto;
+	width: 100%;
+	align-self: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.fullContainer {
+	min-height: 100%;
+}
+
+.content {
+	height: auto;
+	max-width: 80%;
+	font-family: 'Poppins', sans-serif;
+	display: flex;
+	align-items: center;
+}
+
+/* First Section*/
+#first {
+	background-image: url(../images/background.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.innerContent {
+	width: 65%;
+	height: 55%;
+}
+
+.innerContent h1{
+	font-size: 56px;
+	margin-bottom: 15px;
+}
+
+.innerContent h2 {
+	font-size: 22px;
+	font-weight: lighter;
+	margin-bottom: 50px;
+}
+
+.innerContent a {
+	letter-spacing: 1.5px;
+}
+
+.innerContent p {
+	margin-top: 45px;
+	color: white;
+	text-decoration: underline;
+	font-size: 20px;
+}

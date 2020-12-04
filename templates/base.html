@@ -3,35 +3,41 @@
 <head>
 	<meta charset="utf-8">
 	<title>Job Tracer</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/nav.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap" rel="stylesheet">
 </head>
 
-<body>
-	<header class="banner">
-		<nav class="menu">
-			<ul>
-				<!-- First Part -->
-				<!-- Index page navigation -->
-				<li><a href="/#second">About</a></li>
-				<li><a href="/#third">Goals</a></li>
-				<li><a href="/#forth">Features</a></li>
-				<!-- Second Part -->
-				<!-- Website Logo & Link to Main -->
-				<li><a href="{{url_for('main.index')}}">OfferTracer</a></li>
-				<!-- Third Part -->
+<body><!-- Nav -->
+	<nav class="menu">
+			<!-- First Part -->
+			<!-- Index page navigation -->
+			<div class="m1">
+				<a href="/#second">About</a>
+				<a href="/#third">Goals</a>
+				<a href="/#forth">Features</a>
+			</div>
+			<!-- Second Part -->
+			<!-- Website Logo & Link to Main -->
+			<div class="title">
+				<a href="{{url_for('main.index')}}">OfferTracer</a>
+			</div>
+			<!-- Third Part -->
+			<div class="m2">
 				<!-- If not logged in -->
 				{% if not current_user.is_authenticated %}
-				<li><a href="{{url_for('auth.login')}}">Login</a></li>
-				<li><a href="{{url_for('auth.signup')}}">Sign Up</a></li>
+				<a href="{{url_for('auth.login')}}">Login</a>
+				<a href="{{url_for('auth.signup')}}" class="navSignup"><span>Sign Up</span></a>
 				{% endif %}
 				<!-- If Logged in -->
 				{% if current_user.is_authenticated %}
-				<li><a href="{{url_for('auth.logout')}}">Logout</a></li>
-				<li><a href="{{url_for('main.dashboard')}}">Dashboard</a></li>
-				<li><a href="{{url_for('main.account')}}">Account</a></li>
+				<a href="{{url_for('auth.logout')}}">Logout</a>
+				<a href="{{url_for('main.dashboard')}}">Dashboard</a>
+				<a href="{{url_for('main.account')}}">Account</a>
 				{% endif %}
-			</ul>
-		</nav>
-	</header>
+			</div>
+	</nav>
 
 	<div class="container">
 		{% block content %}
