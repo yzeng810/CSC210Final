@@ -396,7 +396,6 @@ ul {
 
 .todoContent h2 {
 	font-size: 32px;
-	text-align: left;
 }
 
 /*
@@ -405,7 +404,7 @@ ul {
 
 
 /*--------------------------------
-		Fifth Section
+		Sixth Section
 /*--------------------------------*/
 #sixth {
 	background-color: #e4eaf2;
@@ -423,26 +422,26 @@ ul {
 
 /* calendar */
 .jzdbox1 {
-  width:960px; 
-  border-radius:20px; 
-  overflow:hidden; 
-  display:block;  
+  	width:960px; 
+  	border-radius:20px; 
+  	overflow:hidden; 
+  	display:block;  
 /*  box-shadow:0 0 10px #201d1c; */
 /*  margin:0 auto;
   align-self: center;*/
-  padding: 0;
-  margin: 0 auto;
-  margin-top: 100px;
-  margin-bottom:50px;
+  	padding: 0;
+  	margin: 0 auto;
+  	margin-top: 100px;
+  	margin-bottom:50px;
 }
 
 .jzdcal {
-  padding: 40px;
-  box-sizing:border-box!important; 
-  background-image: url(../images/calback.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  	padding: 40px;
+  	box-sizing:border-box!important; 
+  	background-image: url(../images/calback.png);
+  	background-repeat: no-repeat;
+  	background-position: center;
+  	background-size: cover;
 }
 
 .jzdcalt {
@@ -507,6 +506,99 @@ ul {
 /*
 ----------------End---------------
 */
+
+
+/*--------------------------------
+		Seventh Section
+/*--------------------------------*/
+.notiTitle img {
+	width: 700px;
+}
+
+.notiTitle h2{
+	font-size: 32px;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 15px;
+	font-weight: bolder;
+}
+.notiText {
+	flex-wrap: wrap;
+	margin-bottom: 50px;
+	margin-top: 50px;
+}
+.notiText h3 {
+
+}
+.noti {
+	width: 55%;
+}
+
+.noti img {
+	width: 100px;
+}
+
+/*
+----------------End---------------
+*/
+
+
+/*--------------------------------
+		Eighth Section
+/*--------------------------------*/
+#eighth {
+	background-image: url(../images/eighthBack.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.eighthContent {
+	margin-top: 250px;
+	margin-bottom: 250px;
+	display: block;
+	text-align: center;
+}
+
+.eighthContent h2{
+	font-size: 42px;
+	margin-bottom: 50px;
+}
+/*
+----------------End---------------
+*/
+
+
+/*--------------------------------
+		Footer Section
+/*--------------------------------*/
+footer {
+	background-color: #30394b;
+}
+.footerContent {
+	color: #faf8f6;
+	margin-top: 50px;
+	margin-bottom: 80px;
+	width: 100%;
+	justify-content: space-between;
+}
+.webName h3 {
+	font-size: 42px;
+	margin-bottom: 0px;
+	padding-bottom: 0;
+}
+.webName p {
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+}
+.developer h3 {
+	text-transform: uppercase;
+	font-size: 20px;
+}
+/*
+----------------End---------------
+*/
+
 
 /* Miscllaneous*/
 @keyframes fadeIn {

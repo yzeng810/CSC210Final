@@ -211,7 +211,7 @@
 <section id="sixth" class="sectionContainer fullContainer">
 	<div class="contentNonFlex containAlignCenter">
 		<div class="calendar">
-			<!-- Calendar is credit to https://codepen.io/jamiemggs/pen/xdvaJv -->
+			<!-- HTML Skeleton (with modifications) and partial CSS is credit to https://codepen.io/jamiemggs/pen/xdvaJv -->
 			<div class="jzdbox1 jzdbasf jzdcal">
 				<div class="jzdcalt containAlignCenter"><h3>June 2017</h3></div>
 				<div class="containAlignCenter">
@@ -274,18 +274,60 @@
 </section>
 
 <section id="seventh" class="sectionContainer fullContainer">
-	<div class="content">
-		<h2>Notification</h2>
-		<p></p>
+	<div class="fullContent todoContent">
+		<div class="notiTitle containAlignCenter">
+			<img src="{{ url_for('static', filename='images/noti.png') }}">
+			<h2>Notifications</h2>
+		</div>
+		<div class="notiText containAlignCenter">
+			<div class="noti">
+				<figure class="containAlignCenter goal1">
+					<img src="{{ url_for('static', filename='images/priority.png') }}">
+				</figure>
+				<h3>Prority</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+			<div class="noti">
+				<figure class="containAlignCenter goal2">
+					<img src="{{ url_for('static', filename='images/mail.png') }}">
+				</figure>
+				<h3>Email</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+			<div class="noti">
+				<figure class="containAlignCenter goal3">
+					<img src="{{ url_for('static', filename='images/flexi.png') }}">
+				</figure>
+				<h3>Flexibility</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+		</div>
 	</div>
 </section>
 
 <!-- Get Started -->
 <section id="eighth" class="sectionContainer">
-	<div class="content">
+	<div class="content eighthContent">
 		<h2>Ready to get started?</h2>
-		<a href="">Sign up Now</a>
-		<
+		<a href="{{url_for('auth.signup')}}" class="navSignup"><span>Sign up now</span></a><br>
 	</div>
 </section>
+
+<footer class="sectionContainer">
+	<div class="content footerContent containAlignCenter">
+	<div class="webName">
+		<h3>OfferTracer</h3>
+		<p>Best Tool of Application Management</p>
+	</div>
+	<div class="developer">
+		<h3>@ University of Rochester CSC 210 TEAM VIII</h3>
+		<p>Content Creator | Keyuan Qin</p>
+		<p>Visual Designer | Yuqi Zeng</p>
+		<p>Back-end Coder | Qianwen Fu</p>
+	</div>
+	</div>
+</footer>
 {% endblock %}
