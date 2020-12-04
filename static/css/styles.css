@@ -1,8 +1,8 @@
 /* General Setup*/
 /** {
 	border: 1px solid hotpink;
-}*/
-html, body, .container{
+}
+*/html, body, .container{
 	margin: 0;
 	height: 100%;
 }
@@ -34,6 +34,12 @@ ul {
 	font-family: 'Poppins', sans-serif;
 	display: flex;
 	align-items: center;
+}
+
+.contentNonFlex {
+	height: auto;
+	max-width: 80%;
+	font-family: 'Poppins', sans-serif;
 }
 
 .containAlignCenter {
@@ -265,8 +271,94 @@ ul {
 /*--------------------------------
 		Third Section
 /*--------------------------------*/
+#forth {
+	/*background-color: #c0b0b8;*/
+	background-color: #e5dfe2;
+}
 
+.accContent {
+	max-width: 65%;
+}
 
+/* Heading */
+.accContent h2 {
+	text-align: center;
+	font-size: 32px;
+	margin-top: 150px;
+	margin-bottom: 100px;
+	font-weight: bolder;
+}
+
+/* Sim Web */
+#accManage, #accCustomize {
+	display: none;
+}
+
+.simWebpage {
+	width: 100%;
+	height: 53.9%;
+	background-image: url(../images/web.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	padding-top: 150px; 
+}
+
+/* button */
+.accButton {
+	padding-left: 50px;
+	margin-bottom: 0px;
+}
+
+.accButton button{
+	outline: none;
+	border-style: none;
+	font-size: 16px;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 30px;
+	padding-right: 30px;
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-top: 2px solid black;
+	border-left: 2px solid black;
+	border-right: 2px solid black;
+	font-weight: bold;
+}
+
+#button41 {
+	background-color: #ebdfe0;
+}
+
+#button42 {
+	background-color: #fbe7b7;
+}
+
+#button43 {
+	background-color: #e4eaf2;
+}
+/* Text */
+.accText {
+	margin-top: 0px;
+	margin-left: 60px;
+	margin-right: 60px;
+	border: 2px solid black;
+	padding-top: 20px;
+}
+
+#accView, #accManage, #accCustomize {
+	margin-left: 40px;
+	margin-right: 20px;
+}
+
+.accText h3 {
+	margin-bottom: 0;
+	padding-bottom: 0;
+	color: #e06253;
+}
 
 /*
 ----------------End---------------

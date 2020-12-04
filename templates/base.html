@@ -97,5 +97,24 @@
 			});
 		}
 	</script>
+	<script>
+		function accFunc(){
+			$("#button41").click(function(){
+				$("#accManage").hide();
+				$("#accCustomize").hide();
+				$("#accView").show();
+			});
+			$("#button42").click(function(){
+				$("#accView").hide();
+				$("#accCustomize").hide();
+				$("#accManage").show();
+			});
+			$("#button43").click(function(){
+				$("#accView").hide();
+				$("#accManage").hide();
+				$("#accCustomize").show();
+			});
+		}
+	</script>
 </body>
 </html>
