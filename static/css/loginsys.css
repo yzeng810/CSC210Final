@@ -1,0 +1,70 @@
+/** {
+	border: 1px solid hotpink;
+}*/
+.loginContent {
+	width: 30%;
+	display: block; 
+	padding-bottom: 80px;
+}
+.loginContent h2 {
+	font-size: 22px;
+	text-transform: uppercase;
+	font-weight: normal;
+	letter-spacing: 2px;
+	margin-bottom: 30px;
+}
+
+.loginContent label {
+	font-size: 15px;
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+	font-weight: normal;
+}
+
+.inputNormal {
+	font-size: 18px;
+	/*text-transform: uppercase;*/
+	font-weight: normal;
+	margin-bottom: 40px;
+	width: 87%;
+	padding: 13px;
+	padding-left: 50px;
+	outline: none;
+	border: 1px solid black;
+	border-radius: 2px;
+}
+
+.submit {
+	margin-top: 20px;
+	outline: none;
+	border: none;
+	color: white;
+	width: 100%;
+	border-radius: 30px;
+}
+
+#email {
+	background-image: url(../images/email.png);
+	background-repeat: no-repeat;
+	background-position: left;
+	background-size: contain;
+}
+
+#name {
+	background-image: url(../images/name.png);
+	background-repeat: no-repeat;
+	background-position: left;
+	background-size: contain;
+}
+
+#password {
+	background-image: url(../images/key.png);
+	background-repeat: no-repeat;
+	background-position: left;
+	background-size: contain;
+}
+
+.inputNormal:focus {
+	outline: none;
+	border: 3px solid #30394b;
+}
