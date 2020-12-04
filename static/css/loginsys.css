@@ -14,6 +14,13 @@
 	margin-bottom: 30px;
 }
 
+.errorMessage {
+	font-size: 15px;
+	font-weight: normal;
+	color: #e06253;
+	margin-bottom: 30px;
+}
+
 .loginContent label {
 	font-size: 15px;
 	text-transform: uppercase;

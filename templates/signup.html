@@ -2,14 +2,14 @@
 
 {% block content %}
 
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-	{{ messages[0] }} Go to <a href="{{url_for('auth.login')}}">login page</a>.
-{% endif %}
-{% endwith %}
 <div class="sectionContainer fullContainer">
 	<form method="POST" action="/signup" class="content containAlignCenter loginContent">
 		<h2>Sign up to start using now</h2>
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				<p class="errorMessage">{{ messages[0] }} Go to <a href="{{url_for('auth.login')}}">login page</a>.</p>
+			{% endif %}
+		{% endwith %}
 		<label for="email">Email:</label><br><input type="email" name="email" id="email" class="inputNormal" required><br>
 		<label for="name">Name:</label><br><input type="text" name="name" id="name" class="inputNormal"required><br>
 		<label for="password">Password:</label><br><input type="password" name="password" id="password" class="inputNormal" required><br>
