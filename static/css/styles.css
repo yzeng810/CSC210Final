@@ -1,8 +1,8 @@
 /* General Setup*/
 /** {
 	border: 1px solid hotpink;
-}
-*/html, body, .container{
+}*/
+html, body, .container{
 	margin: 0;
 	height: 100%;
 }
@@ -34,6 +34,12 @@ ul {
 	font-family: 'Poppins', sans-serif;
 	display: flex;
 	align-items: center;
+}
+
+.fullContent {
+	height: auto;
+	width: 100%;
+	font-family: 'Poppins', sans-serif;
 }
 
 .contentNonFlex {
@@ -269,7 +275,7 @@ ul {
 
 
 /*--------------------------------
-		Third Section
+		Forth Section
 /*--------------------------------*/
 #forth {
 	/*background-color: #c0b0b8;*/
@@ -287,6 +293,7 @@ ul {
 	margin-top: 150px;
 	margin-bottom: 100px;
 	font-weight: bolder;
+	position: relative;
 }
 
 .accAll {
@@ -300,7 +307,7 @@ ul {
 
 .simWebpage {
 	width: 100%;
-	height: 53.9%;
+	height: 52.7%;
 	background-image: url(../images/web.png);
 	background-repeat: no-repeat;
 	background-size: 100%;
@@ -368,6 +375,33 @@ ul {
 ----------------End---------------
 */
 
+
+/*--------------------------------
+		Fifth Section
+/*--------------------------------*/
+#fifth {
+	background-color: #fbe7b7;
+}
+
+.todoContent {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	margin-right: 100px;
+	margin-left: 100px;
+}
+
+#fifth img{
+	width: 450px;
+}
+
+.todoContent h2 {
+	font-size: 32px;
+	text-align: left;
+}
+
+/*
+----------------End---------------
+*/
 
 
 /* Miscllaneous*/
