@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from flask_bcrypt import Bcrypt
 import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -15,6 +16,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 db.init_app(app)
 db.create_all()
+
+bcrypt = Bcrypt(app)
 
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
