@@ -50,10 +50,21 @@
         		var scroll = $(window).scrollTop();
         		if (scroll>50) {
           			$(".main-menu").css("background-color" , "white");
+          			$(".title").css("color", "#e06253");
         		}
         		else {
-        			$(".main-menu").hover("background-color" , "white");
-          			$(".main-menu").css("background-color" , "transparent");
+        			$(".main-menu").hover(function(){
+        				$(this).css("background-color", "white");
+        			}, function(){
+        				$(this).css("background-color" , "transparent");
+        			});
+        			$(".main-menu").css("background-color" , "transparent");
+        			$(".title").hover(function(){
+        				$(this).css("color", "#e06253");
+        			}, function(){
+        				$(this).css("color" , "black");
+        			});
+          			$(".title").css("color", "black");
         		}
     		})
 		});

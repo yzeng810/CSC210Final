@@ -68,6 +68,10 @@
 	color: white;
 }
 
+.title:hover {
+	color: #e06253;
+}
+
 .main-menu:hover {
 	background-color: white;
 }
