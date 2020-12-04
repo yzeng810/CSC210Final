@@ -404,6 +404,110 @@ ul {
 */
 
 
+/*--------------------------------
+		Fifth Section
+/*--------------------------------*/
+#sixth {
+	background-color: #e4eaf2;
+}
+
+/* Calendar Text */
+.calendarText {
+	text-align: center;
+	margin-bottom: 100px;
+}
+
+.calendarText h2 {
+	font-size: 32px;
+}
+
+/* calendar */
+.jzdbox1 {
+  width:960px; 
+  border-radius:20px; 
+  overflow:hidden; 
+  display:block;  
+/*  box-shadow:0 0 10px #201d1c; */
+/*  margin:0 auto;
+  align-self: center;*/
+  padding: 0;
+  margin: 0 auto;
+  margin-top: 100px;
+  margin-bottom:50px;
+}
+
+.jzdcal {
+  padding: 40px;
+  box-sizing:border-box!important; 
+  background-image: url(../images/calback.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.jzdcalt {
+	margin: 0 auto;
+	align-self: center;
+  	font:24px 'Poppins'; 
+  	font-weight:bold; 
+  	color:#f7f3eb; 
+  	display:block; 
+  	margin:30px 0 0 0; 
+  	text-transform:uppercase; 
+  	text-align:center; 
+  	letter-spacing:1px;
+  	display: flex;
+  	padding: 0;
+  /*background-color: #d67b4c;
+  width: 50%;*/
+}
+
+.jzdcalt h3 {
+	width: auto;
+	padding: 5px 80px 5px 80px;
+	margin-top: 0;
+	margin-right: 0;
+	background-color: #d67b4c;
+}
+
+.jzdcal span {
+  	font:18px 'Poppins'; 
+  	font-weight:400;  
+  	text-align:center; 
+  	width:80px; 
+  	height:80px; 
+  	display:inline-block; 
+  	float:left; 
+  	overflow:hidden; 
+  	line-height:80px;
+  	margin-right: 20px; 
+  	margin-left: 20px;
+  	margin-top: 5px;
+  	margin-bottom: 5px;
+	box-sizing:border-box!important; 
+  	border-radius:200px!important;
+}
+
+.jzdcal .jzdb:before {
+  opacity:0.3; 
+  content:'o';
+  color: #dfdcd0;
+}
+
+.nonCircle {
+	background-color: #dfdcd0;
+  	color: #dd936c;
+}
+
+.circle {
+  	color: #dfdcd0;
+	background-color: #d67b4c;
+}
+
+/*
+----------------End---------------
+*/
+
 /* Miscllaneous*/
 @keyframes fadeIn {
 	from {
@@ -412,4 +516,21 @@ ul {
 	to {
 		opacity: 1;
 	}
+}
+
+span[data-title]:hover:after, 
+div[data-title]:hover:after {
+  font:18px 'Poppins'; 
+  font-weight: 400; 
+  content:attr(data-title); 
+  position:absolute; 
+  margin:0 0 100px; 
+  background: #dd936c; 
+  border-radius: 10px;
+  box-shadow: 0 0 20px #dd936c;
+  color:#f7f3eb; 
+  padding:5px; 
+  z-index:999; 
+  min-width:200px; 
+  max-width:200px;
 }
