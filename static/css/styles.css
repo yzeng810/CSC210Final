@@ -177,8 +177,10 @@ ul {
 /* Button */
 .buttonSecond {
 	text-align: center;
+	display: inline-flex;
 	align-self: flex-end;
 	padding-bottom: 30px;
+	width: 100%;
 }
 
 #button21, #button22, #button23 {
