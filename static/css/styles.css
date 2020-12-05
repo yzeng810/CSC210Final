@@ -256,6 +256,15 @@ ul {
 	width: 40%;
 }
 
+.goal h2 {
+	font-size: 24px;
+	/*text-align: center;*/
+}
+
+.goal p {
+	font-weight: lighter;
+}
+
 .goal1 {
 	background-image: url(../images/pinkshape.png);
 	background-repeat: no-repeat;
@@ -366,7 +375,9 @@ ul {
 	margin-left: 60px;
 	margin-right: 60px;
 	border: 2px solid black;
+	border-bottom: none;
 	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 #accView, #accManage, #accCustomize {
@@ -536,8 +547,8 @@ ul {
 	margin-bottom: 50px;
 	margin-top: 50px;
 }
-.notiText h3 {
-
+.notiText p {
+	font-weight: lighter;
 }
 .noti {
 	width: 55%;
@@ -638,7 +649,7 @@ div[data-title]:hover:after {
 
 @media (max-width: 1500px) {
 	.simWebpage{
-		zoom:90%;
+		zoom: 85%;
 	}
 }
 
@@ -654,7 +665,7 @@ div[data-title]:hover:after {
 	}
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1130px) {
 	html {
 		zoom: 75%;
 	}
