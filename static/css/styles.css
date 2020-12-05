@@ -237,8 +237,14 @@ ul {
 		Third Section
 /*--------------------------------*/
 .goal {
-	margin-left: 40px;
-	margin-right: 40px;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.goalContent {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	height: 50%;
 }
 
 .goalContent figure {
