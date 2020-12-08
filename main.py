@@ -20,6 +20,7 @@ def account():
 	return render_template('account.html', name=current_user.name)
 
 @main.route('/account', methods=['POST'])
+@login_required
 def account_post():
 	email = request.form.get('email')
 	name = request.form.get('name')
@@ -27,6 +28,7 @@ def account_post():
 	if current_user.name != name:
 		current_user.name = name
 		db.session.commit()
+		flash('You user name has been updated!')
 	#if no user is found or the password is wrong
 	if current_user.email != email:
 		user = User.query.filter_by(email=email).first()
@@ -35,5 +37,6 @@ def account_post():
 		else:
 			current_user.email = email
 			db.session.commit()
+			flash('You email address has been updated!')
 
 	return redirect(url_for('main.account'))
