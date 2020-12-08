@@ -11,6 +11,7 @@
 
 	<h2>{{current_user.name}}</h2>
 	<p>{{current_user.email}}</p>
+	<p>{{current_user.id}}</p><!--test code-->
 
 	<form method="POST" action="/account">
 	<label for="email">Email:</label><input type="email" name="email" id="email" value="{{current_user.email}}" required>

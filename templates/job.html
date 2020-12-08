@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+	{% for job in jobs %}
+		<li>{{job}}</li>
+		<li>{{job.user_id}}
+	{% endfor %}
+{% endblock %}
