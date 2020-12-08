@@ -15,9 +15,18 @@
 			<!-- First Part -->
 			<!-- Index page navigation -->
 			<div class="m1">
+				<!-- If not logged in -->
+				{% if not current_user.is_authenticated %}
 				<a href="/#second">About</a>
 				<a href="/#third">Goals</a>
 				<a href="/#forth">Features</a>
+				{% endif %}
+				<!-- If Logged in -->
+				{% if current_user.is_authenticated %}
+				<a href="">Calendar</a>
+				<a href="">Task</a>
+				<a href="">Application</a>
+				{% endif %}
 			</div>
 			<!-- Second Part -->
 			<!-- Website Logo & Link to Main -->
@@ -34,8 +43,7 @@
 				<!-- If Logged in -->
 				{% if current_user.is_authenticated %}
 				<a href="{{url_for('auth.logout')}}">Logout</a>
-				<a href="{{url_for('main.dashboard')}}">Dashboard</a>
-				<a href="{{url_for('main.account')}}">Account</a>
+				<a href="{{url_for('main.dashboard')}}" class="accName">{{ name }}</a>
 				{% endif %}
 			</div>
 	</nav>

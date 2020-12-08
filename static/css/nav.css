@@ -1,3 +1,7 @@
+/** {
+	border: 1px hotpink solid;
+}*/
+
 .main-menu {
 	position: fixed;
 	background-color: transparent;
@@ -23,7 +27,7 @@
 }
 
 .m1 {
-	padding-left: 40px;
+	padding-left: 50px;
 	padding-top: 11px;
 }
 
@@ -60,6 +64,17 @@
 	letter-spacing: 1.5px;
 }
 
+.accName {
+	background-image: url(../images/user1.png);
+	background-repeat: no-repeat;
+	background-position: right;
+	background-size: contain;
+
+	padding-right: 40px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
 .navSignup span:visited {
 	color: white;
 }
@@ -67,6 +82,7 @@
 .navSignup span:hover {
 	color: white;
 }
+
 
 .title:hover {
 	color: #e06253;
@@ -78,7 +94,7 @@
 
 .main-menu a:hover {
 	text-decoration: none;
-	color: currentColor;
+	color: #e06253;
 }
 
 .main-menu a:visited {
