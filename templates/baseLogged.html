@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Job Tracer</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/nav.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/loginsys.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dashboard.css') }}">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap" rel="stylesheet">
+</head>
+
+<body><!-- Nav -->
+
+	<!-- If Logged in -->
+	{% if current_user.is_authenticated %}
+	<nav class="main-menu auth">
+		<!-- First Part -->
+		<!-- Index page navigation -->
+		<div class="m1">
+			<a href="">Calendar</a>
+			<a href="">Task</a>
+			<a href="">Application</a>
+		</div>
+		<!-- Second Part -->
+		<!-- Website Logo & Link to Main -->
+		<div class="title">
+			<a href="{{url_for('main.index')}}">OfferTracer</a>
+		</div>
+		<!-- Third Part -->
+		<div class="m2">
+			<a href="{{url_for('auth.logout')}}">Logout</a>
+			<a href="{{url_for('main.dashboard')}}" class="accName">{{ name }}</a>
+		</div>
+	</nav>
+	
+
+	<div class="container">
+		{% block content %}
+		{% endblock %}
+	</div>
+	{% endif %}
+
+</body>
+</html>

@@ -6,47 +6,66 @@
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/nav.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/loginsys.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dashboard.css') }}">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap" rel="stylesheet">
 </head>
 
 <body><!-- Nav -->
-	<nav class="main-menu">
-			<!-- First Part -->
-			<!-- Index page navigation -->
+	<nav class="main-menu notAuth">
 			<div class="m1">
-				<!-- If not logged in -->
+				
 				{% if not current_user.is_authenticated %}
 				<a href="/#second">About</a>
 				<a href="/#third">Goals</a>
 				<a href="/#forth">Features</a>
 				{% endif %}
-				<!-- If Logged in -->
+				
 				{% if current_user.is_authenticated %}
 				<a href="">Calendar</a>
 				<a href="">Task</a>
 				<a href="">Application</a>
 				{% endif %}
 			</div>
-			<!-- Second Part -->
-			<!-- Website Logo & Link to Main -->
+
 			<div class="title">
 				<a href="{{url_for('main.index')}}">OfferTracer</a>
 			</div>
-			<!-- Third Part -->
+
 			<div class="m2">
-				<!-- If not logged in -->
+			
 				{% if not current_user.is_authenticated %}
 				<a href="{{url_for('auth.login')}}">Login</a>
 				<a href="{{url_for('auth.signup')}}" class="navSignup"><span>Sign Up</span></a>
 				{% endif %}
-				<!-- If Logged in -->
+		
 				{% if current_user.is_authenticated %}
 				<a href="{{url_for('auth.logout')}}">Logout</a>
 				<a href="{{url_for('main.dashboard')}}" class="accName">{{ name }}</a>
 				{% endif %}
 			</div>
 	</nav>
+
+	
+<!-- 	{% if not current_user.is_authenticated %}
+	<nav class="main-menu notAuth">
+		
+		<div class="m1">
+			<a href="/#second">About</a>
+			<a href="/#third">Goals</a>
+			<a href="/#forth">Features</a>
+		</div>
+		
+		<div class="title">
+			<a href="{{url_for('main.index')}}">OfferTracer</a>
+		</div>
+		
+		<div class="m2">
+			<a href="{{url_for('auth.login')}}">Login</a>
+			<a href="{{url_for('auth.signup')}}" class="navSignup"><span>Sign Up</span></a>
+		</div>
+	</nav>
+	{% endif %} -->
 
 	<div class="container">
 		{% block content %}
@@ -58,16 +77,16 @@
  			$(window).scroll(function(){
         		var scroll = $(window).scrollTop();
         		if (scroll>50) {
-          			$(".main-menu").css("background-color" , "white");
+          			$(".notAuth").css("background-color" , "white");
           			$(".title").css("color", "#e06253");
         		}
         		else {
-        			$(".main-menu").hover(function(){
+        			$(".notAuth").hover(function(){
         				$(this).css("background-color", "white");
         			}, function(){
         				$(this).css("background-color" , "transparent");
         			});
-        			$(".main-menu").css("background-color" , "transparent");
+        			$(".notAuth").css("background-color" , "transparent");
         			$(".title").hover(function(){
         				$(this).css("color", "#e06253");
         			}, function(){

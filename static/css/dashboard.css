@@ -1,0 +1,11 @@
+/** {
+	border: 1px solid hotpink;
+}*/
+.dashHeader {
+	background-image: url(../images/eighthBack.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+
+	height: 30%;
+}
