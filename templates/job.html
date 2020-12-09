@@ -2,7 +2,7 @@
 
 {% block content %}
 	{% for job in jobs %}
-		<li>{{job}}</li>
-		<li>{{job.user_id}}
+		<li>User: {{job.user_id}} Job: {{job}}</li>
+		<li><a href="{{url_for('main.job_single', job_id=job.id)}}">Go to this job</a>
 	{% endfor %}
 {% endblock %}

@@ -48,7 +48,7 @@ def new_job():
 	if request.method == "POST":
 		program = request.form.get('program')
 		company = request.form.get('company')
-		deadline = datetime.strptime(request.form.get('deadline'), "%Y-%m-%d").date()
+		deadline = datetime.strptime(request.form.get('deadline'), "%Y-%m-%d")
 		resumeNotes = request.form.get('resumeNotes')
 		coverletterNotes = request.form.get('coverletterNotes')
 		transcriptNotes = request.form.get('transcriptNotes')
@@ -60,10 +60,17 @@ def new_job():
 		return redirect(url_for('main.job'))
 	return render_template('create_job.html', title='New Application')
 
-
-
+#show all the applications added by the user
 @main.route('/job')
 @login_required
 def job():
 	jobs = Job.query.all()
 	return render_template('job.html', jobs=jobs)
+
+@main.route('/job_single/<int:job_id>')
+def job_single(job_id):
+	job = Job.query.get_or_404(job_id)
+	return render_template('job-single.html', job=job)
+
+#@main.route('/reset_password', methods=['GET','POST'])
+#def reset_request():
