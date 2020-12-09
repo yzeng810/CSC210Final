@@ -3,4 +3,9 @@
 {% block content %}
 	<li>{{job.program}}</li>
 	<li>{{job.company}}</li>
+	<li><a href="{{url_for('main.job_update', job_id=job.id)}}">Update</a></li>
+	<li><a href="{{url_for('main.job_delete', job_id=job.id)}}">Delete</a></li>
+	<li><a href="{{url_for('main.job')}}">Back</a></li>
+
+
 {% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<form method="POST" action="/login" class="content containAlignCenter loginContent">
+		<h2>Request Password Change</h2>
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+			{% for msg in messages %}
+				{{ msg }}
+			{% endfor %}
+		{% endif %}
+		{% endwith %}
+		<label for="email">Email</label><br><input type="email" name="email" id="email" class="inputNormal" required><br>
+		<input type="submit" value="Request Password Change" class="submit navSignup" id="submit">
+	</form>
+
+
+{% endblock %}

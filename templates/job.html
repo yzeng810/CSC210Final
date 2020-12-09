@@ -1,8 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for msg in messages %}
+				{{ msg }}
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+	
 	{% for job in jobs %}
 		<li>User: {{job.user_id}} Job: {{job}}</li>
-		<li><a href="{{url_for('main.job_single', job_id=job.id)}}">Go to this job</a>
+		<li><a href="{{url_for('main.job_single', job_id=job.id)}}">Go to this job</a></li>
+		<li><a href="{{url_for('main.job_update', job_id=job.id)}}">Update</a></li>
+		<li><a href="{{url_for('main.job_delete', job_id=job.id)}}">Delete</a></li>
 	{% endfor %}
 {% endblock %}

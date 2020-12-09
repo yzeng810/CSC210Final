@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="sectionContainer fullContainer">
-	<form method="POST" action="#" class="content containAlignCenter loginContent">
+	<form method="POST" action="" class="content containAlignCenter loginContent">
 		<h2>New Application</h2>
 		{% with messages = get_flashed_messages() %}
 			{% if messages %}
@@ -11,7 +11,7 @@
 		{% endwith %}
 		<label for="program">Program: </label><br><input type="text" name="program" id="program" class="inputNormal" required><br>
 		<label for="company">Company: </label><br><input type="text" name="company" id="company" class="inputNormal" required><br>
-		<label for="deadline">Deadline: </label><br><input type="date" name="deadline" id="company" class="inputNormal"><br>
+		<label for="deadline">Deadline: </label><br><input type="date" name="deadline" id="company" class="inputNormal" required><br>
 		<label for="resumeNotes">Resume Notes:</label><br><input type="text" name="resumeNotes" id="resumeNotes" class="inputNormal"><br>
 		<label for="coverletterNotes">Cover Letter Notes:</label><br><input type="text" name="coverletterNotes" id="coverletterNotes" class="inputNormal"><br>
 		<label for="transcriptNotes">Transcript Notes:</label><br><input type="text" name="transcriptNotes" id="transcriptNotes" class="inputNormal"><br>

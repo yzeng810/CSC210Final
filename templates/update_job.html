@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="sectionContainer fullContainer">
+	<form method="POST" action="" class="content containAlignCenter loginContent">
+		<h2>Update Application</h2>
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				<p class="errorMessage">{{ messages[0] }}</p>
+			{% endif %}
+		{% endwith %}
+		<label for="program">Program: </label><br><input type="text" name="program" id="program" class="inputNormal" value="{{job.program}}" required><br>
+		<label for="company">Company: </label><br><input type="text" name="company" id="company" class="inputNormal" value="{{job.company}}" required><br>
+		<label for="deadline">Deadline: </label><br><input type="date" name="deadline" id="company" class="inputNormal" value="{{job.deadline.date()}}" required=""><br>
+		<label for="resumeNotes">Resume Notes:</label><br><input type="text" name="resumeNotes" id="resumeNotes" class="inputNormal" value="{{job.resumeNotes}}"><br>
+		<label for="coverletterNotes">Cover Letter Notes:</label><br><input type="text" name="coverletterNotes" id="coverletterNotes" class="inputNormal" value="{{job.coverletterNotes}}"><br>
+		<label for="transcriptNotes">Transcript Notes:</label><br><input type="text" name="transcriptNotes" id="transcriptNotes" class="inputNormal" value="{{job.transcriptNotes}}"><br>
+		<label for="onlineFormNotes">Online Application Form Notes:</label><br><input type="text" name="onlineFormNotes" id="onlineFormNotes" class="inputNormal" value="{{job.onlineFormNotes}}"><br>
+		<input type="submit" value="Update" class="submit navSignup" id="submit">
+	</form>
+</div>
+
+{% endblock %}

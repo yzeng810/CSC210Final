@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, request, flash
+from flask import Blueprint, render_template, redirect, url_for, flash, request
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, logout_user, login_required
 from models import User
@@ -55,3 +55,18 @@ def signup_post():
 def logout():
 	logout_user()
 	return redirect(url_for('main.index'))
+
+@auth.route('/request_reset', methods=['GET','POST'])
+@login_required
+def request_reset():
+	if request.method == "POST":
+		email = request.form.get('email')
+		user = User.query.filter_by(email=email).first()
+		if user is None:
+			flash('There is no account with that email, you must register first.')
+			return redirect(url_for('auth.signup'))
+	return render_template('request-reset.html')
+
+#@auth.route('')
+#@login_required
+#def reset():
