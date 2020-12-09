@@ -90,7 +90,6 @@
 	color: white;
 }
 
-
 .title:hover {
 	color: #e06253;
 }
@@ -99,10 +98,17 @@
 	background-color: white;
 }
 
-.main-menu a:hover {
-	text-decoration: none;
+.navLink:hover {
 	color: #e06253;
 }
+
+.auth a:hover{
+	color: #e06253;
+}
+
+/*.main-menu a:hover {
+	text-decoration: none;
+}*/
 
 .main-menu a:visited {
 	text-decoration: none;
