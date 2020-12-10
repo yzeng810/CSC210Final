@@ -18,5 +18,6 @@
 	<label for="name">Name:</label><input type="text" name="name" id="name" value="{{current_user.name}}" required>
 	<!--<label for="password">Password:</label><input type="password" name="password" id="password" required placeholder="Enter Your Password">-->
 	<input type="submit" value="Update" class="submit" id="submit">
-</form>
+	</form>
+	<a href="{{url_for('auth.request_reset')}}">Change Password</a>
 {% endblock %}

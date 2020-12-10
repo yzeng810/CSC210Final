@@ -2,7 +2,8 @@ from flask import Blueprint, render_template, redirect, url_for, flash, request
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, logout_user, login_required
 from models import User
-from app import db, bcrypt
+from app import app, db, bcrypt, mail
+from flask_mail import Message
 
 auth = Blueprint('auth', __name__)
 
@@ -65,8 +66,34 @@ def request_reset():
 		if user is None:
 			flash('There is no account with that email, you must register first.')
 			return redirect(url_for('auth.signup'))
+		else:
+			token = user.get_reset_token()
+			msg = Message('Password Reset Request', sender='noreply@offertracer.com', recipients=[user.email])
+			msg.body = f'''To reset your password, visit the following link:
+{url_for('auth.reset_token', token=token, _external=True)}
+
+If you did not make this request then simply ignore this email and no changes will be made.
+'''
+			mail.send(msg)
+			flash('An email has been sent with instructions to reset your password')
+			return redirect(url_for('auth.login'))
 	return render_template('request-reset.html')
 
-#@auth.route('')
-#@login_required
-#def reset():
+@auth.route('/request_reset/<token>', methods=['GET','POST'])
+def reset_token(token):
+	user = User.verify_reset_token(token)
+	if user is None:
+		flash('That is an invalid or expired token')
+		return redirect(url_for('auth.request_reset'))
+	if request.method == "POST":
+		password = request.form.get('password')
+		verify = request.form.get('verify')
+		if password == verify:
+			hashed_password = bcrypt.generate_password_hash(request.form.get('password')).decode('utf-8')
+			user.password = hashed_password
+			db.session.commit()
+			flash('Your password has been updated')
+			return redirect(url_for('auth.login'))
+		else:
+			flash('The password and verify password field do not match')
+	return render_template('reset-password.html')
