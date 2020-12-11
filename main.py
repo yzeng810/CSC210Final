@@ -168,7 +168,7 @@ def new_job():
 @login_required
 def job():
 	jobs = Job.query.filter_by(user_id=current_user.id)
-	return render_template('job.html', jobs=jobs)
+	return render_template('job.html', jobs=jobs, name=current_user.name)
 
 @main.route('/job_single/<int:job_id>')
 @login_required
