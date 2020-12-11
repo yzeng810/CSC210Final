@@ -32,6 +32,7 @@ def calendar():
 	jobDeadline = []
 	jobs = Job.query.filter_by(user_id=current_user.id)
 	for job in jobs:
+		print(job)
 		jobTitle.append(job.program)
 		jobDeadline.append(job.deadline)
 	return render_template('calendar.html', name=current_user.name, jobTitle=jobTitle, jobDeadline=jobDeadline)
