@@ -51,6 +51,16 @@ box-shadow: 2px 5px 16px 0px #4f4f4f, 5px 5px 15px 5px rgba(0,0,0,0);
  	text-transform: uppercase;
 }
 
+.taskContainer h2 {
+	margin-top: 30px;
+	padding-left: 100px;
+	font-size: 32px;
+	letter-spacing: 3px;
+ 	text-transform: uppercase;
+ 	color: #888783;
+ 	margin-bottom: 20px;
+}
+
 .todolist ul {
 	width: 90%;
 	margin: 0 auto;
