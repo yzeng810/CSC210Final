@@ -1,8 +1,51 @@
 {% extends "baseLogged.html" %}
 
 {% block content %}
-<div class="calendarContainer">
-	<div class="calendar" id="calendar"></div>
+<div class="taskContainer sectionContainer">
+	<div class="button">
+		
+	</div>
+	<div class="todolist">
+		<h1>Tasks</h1>
+		<ul class="taskList">
+			<li class="taskItem">
+				<div class="taskItemTitle taskIteminner">
+					<p>Task</p>
+					<p>Deadline</p>
+					<p class="complete">Complete</p>
+				</div>
+				<div class="taskItemRec taskIteminner">
+					<p>Complete Resume</p>
+					<p>2012-02-10</p>
+					<p class="complete"><input type="checkbox" name="" onclick="window.location.href='';" value="true"></p>
+				</div>
+			</li>
+			<li class="taskItem">
+				<div class="taskItemTitle taskIteminner">
+					<p>Task</p>
+					<p>Deadline</p>
+					<p class="complete">Complete</p>
+				</div>
+				<div class="taskItemRec taskIteminner">
+					<p>Complete Resume</p>
+					<p>2012-02-10</p>
+					<p class="complete"><input type="checkbox" name="" onclick="window.location.href='';" value="true"></p>
+				</div>
+			</li>
+			<li class="taskItem">
+				<div class="taskItemTitle taskIteminner">
+					<p>Task</p>
+					<p>Deadline</p>
+					<p class="complete">Complete</p>
+				</div>
+				<div class="taskItemRec taskIteminner">
+					<p>Complete Resume </p>
+					<p>2012-02-10</p>
+					<p class="complete"><input type="checkbox" name="" onclick="window.location.href='';" value="true"></p>
+				</div>
+			</li>
+		</ul>
+	</div>
 </div>
 	
 {% endblock %}
