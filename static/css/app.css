@@ -2,17 +2,27 @@
 	border: 1px solid hotpink;
 }*/
 
+
 /* General for header */
 .appContainer {
 	margin: 0 auto;
 	font-family:  'Poppins', sans-serif;
-	width: 1200px;
-	min-height: 100%;
+	background-color: #faf8f6;
+	height: auto;
+	padding-bottom: 100px;
 }
 
 .appContent {
-	margin: 0 auto;
-	min-height: 100%;
+	width: 1200px;
+
+}
+
+.appContainer h1 {
+	margin-top: 80px;
+	font-size: 52px;
+	letter-spacing: 10px;
+	text-transform: uppercase;
+	padding-left: 40px;
 }
 
 .appcards {
@@ -20,4 +30,86 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	margin: 0 auto;
+	width: 100%;
+}
+
+.scene {
+  width: 350px;
+  height: 350px;
+  margin: 40px 0;
+  perspective: 600px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 30px;
+}
+
+.card {
+	width: 350px;
+	height: 350px;
+	display: flex;
+	transform-style: preserve-3d;
+  	transform-origin: center right;
+  	transition: transform 1s;
+}
+
+.card img {
+	width: 350px;
+}
+
+.card__face--front {
+	background-color: white;
+	border-radius: 30px;
+}
+
+.card.is-flipped {
+  transform: translateX(-100%) rotateY(-180deg);
+  border-radius: 30px;
+  background-color: #c5afc5;
+}
+
+.card__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  backface-visibility: hidden;
+}
+
+.card__face--back {
+  transform: rotateY(180deg);
+}
+
+.card li {
+	margin-left: 25px;
+	margin-right: 25px;
+	font-weight: lighter;
+	text-align: left;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+
+.cardItem {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+}
+
+.cardTitle {
+	text-transform: uppercase;
+	letter-spacing: 1.2px;
+	color: #e8e8e7;
+}
+
+.card p {
+	margin: 0;
+}
+
+.card a {
+	/*text-decoration: none;*/
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 1.2px;
+	color: #e8e8e7;
 }
