@@ -2,7 +2,7 @@
 
 {% block content %}
 	
-	<div class="appContainer container">
+	<div class="appContainer sectionContainer">
 		{% with messages = get_flashed_messages() %}
 		{% if messages %}
 			{% for msg in messages %}
@@ -11,8 +11,7 @@
 		{% endif %}
 		{% endwith %}
 
-		<div class="sectionContainer">
-			<h1>All Applications</h1>
+		<h1>All Applications</h1>
 
 			<div class="">
 				{% for job in jobs %}
@@ -22,10 +21,6 @@
 				<li><a href="{{url_for('main.job_delete', job_id=job.id)}}">Delete</a></li>
 				{% endfor %}
 			</div>
-		</div>
-
-		
-		
 	</div>
 	
 	
