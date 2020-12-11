@@ -18,7 +18,44 @@ def dashboard():
 @main.route('/task')
 @login_required
 def task():
-	return render_template('task.html', name=current_user.name)
+	tasks = []
+	completed = []
+	data = Task.query.filter_by(user_id=current_user.id)
+	for task in data:
+		if task.complete == False:
+			tasks.append(task)
+		else:
+			completed.append(task)
+	return render_template('task.html', name=current_user.name, tasks=tasks, completed=completed)
+
+@main.route('/task/new', methods=['GET','POST'])
+@login_required
+def new_task():
+	jobs = Job.query.filter_by(user_id=current_user.id)
+	if request.method == "POST":
+		item = request.form.get('item')
+		notes = request.form.get('notes')
+		due = datetime.strptime(request.form.get('due'), "%Y-%m-%d").date()
+		job_id = request.form.get('job')
+		task = Task(item=item, notes=notes, due=due, complete=False, user_id=current_user.id, job_id=job_id)
+		db.session.add(task)
+		db.session.commit()
+		return redirect(url_for('main.task'))
+	return render_template('create_task.html', jobs=jobs)
+
+@main.route('/complete/<id>')
+def complete(id):
+	task = Task.query.filter_by(id=id).first()
+	task.complete = True
+	db.session.commit()
+	return redirect(url_for('main.task'))
+
+@main.route('/incomplete/<id>')
+def incomplete(id):
+	task = Task.query.filter_by(id=id).first()
+	task.complete = False
+	db.session.commit()
+	return redirect(url_for('main.task'))
 
 @main.route('/account')
 @login_required

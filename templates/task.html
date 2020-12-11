@@ -6,44 +6,44 @@
 		
 	</div>
 	<div class="todolist">
-		<h1>Tasks</h1>
+		<h1>Incomplete Tasks</h1>
 		<ul class="taskList">
-			<li class="taskItem">
-				<div class="taskItemTitle taskIteminner">
-					<p>Task</p>
-					<p>Deadline</p>
-					<p class="complete">Complete</p>
-				</div>
-				<div class="taskItemRec taskIteminner">
-					<p>Complete Resume</p>
-					<p>2012-02-10</p>
-					<p class="complete"><input type="checkbox" name="" onclick="window.location.href='';" value="true"></p>
-				</div>
-			</li>
-			<li class="taskItem">
-				<div class="taskItemTitle taskIteminner">
-					<p>Task</p>
-					<p>Deadline</p>
-					<p class="complete">Complete</p>
-				</div>
-				<div class="taskItemRec taskIteminner">
-					<p>Complete Resume</p>
-					<p>2012-02-10</p>
-					<p class="complete"><input type="checkbox" name="" onclick="window.location.href='';" value="true"></p>
-				</div>
-			</li>
-			<li class="taskItem">
-				<div class="taskItemTitle taskIteminner">
-					<p>Task</p>
-					<p>Deadline</p>
-					<p class="complete">Complete</p>
-				</div>
-				<div class="taskItemRec taskIteminner">
-					<p>Complete Resume </p>
-					<p>2012-02-10</p>
-					<p class="complete"><input type="checkbox" name="" onclick="window.location.href='';" value="true"></p>
-				</div>
-			</li>
+			{% if tasks %}
+				{% for task in tasks %}
+				<li class="taskItem">
+					<div class="taskItemTitle taskIteminner">
+						<p>Task</p>
+						<p>Deadline</p>
+						<p class="complete">Complete</p>
+					</div>
+					<div class="taskItemRec taskIteminner">
+						<p>{{task.item}}</p>
+						<p>{{task.due}}</p>
+						<p class="complete"><input type="checkbox" name="complete" onclick="window.location.href='{{url_for('main.complete', id = task.id)}}';" value="complete"></p>
+					</div>
+				</li>
+				{% endfor %}
+			{% endif %}
+		</ul>
+
+		<h1>Completed Tasks</h1>
+		<ul class="taskList">
+			{% if completed %}
+				{% for task in completed %}
+				<li class="taskItem">
+					<div class="taskItemTitle taskIteminner">
+						<p>Task</p>
+						<p>Deadline</p>
+						<p class="complete">Complete</p>
+					</div>
+					<div class="taskItemRec taskIteminner">
+						<p>{{task.item}}</p>
+						<p>{{task.due}}</p>
+						<p class="complete"><input type="checkbox" name="complete" onclick="window.location.href='{{url_for('main.incomplete', id = task.id)}}';" value="incomplete" checked></p>
+					</div>
+				</li>
+				{% endfor %}
+			{% endif %}
 		</ul>
 	</div>
 	<div class="addButton">
