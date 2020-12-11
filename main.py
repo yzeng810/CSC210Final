@@ -28,7 +28,13 @@ def account():
 @main.route('/calendar')
 @login_required
 def calendar():
-	return render_template('calendar.html', name=current_user.name)
+	jobTitle = []
+	jobDeadline = []
+	jobs = Job.query.filter_by(user_id=current_user.id)
+	for job in jobs:
+		jobTitle.append(job.program)
+		jobDeadline.append(job.deadline)
+	return render_template('calendar.html', name=current_user.name, jobTitle=jobTitle, jobDeadline=jobDeadline)
 
 @main.route('/preference')
 @login_required
@@ -135,9 +141,3 @@ def job_delete(job_id):
 	db.session.commit()
 	flash('Your application has been deleted')
 	return redirect(url_for('main.job'))
-
-@main.route('/calendar')
-@login_required
-def calendar():
-	jobs = Job.query.filter_by(user_id=current_user.id)
-	return render_template('calendar.html', jobs=jobs)
