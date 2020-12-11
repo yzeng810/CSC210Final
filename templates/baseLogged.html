@@ -235,6 +235,8 @@
       classes.push('other');
     } else if (today.isSame(day, 'day')) {
       classes.push('today');
+    } else {
+    	classes.push('regular');
     }
     return classes.join(' ');
   }
@@ -310,7 +312,7 @@
 
     if(!events.length) {
       var div = createElement('div', 'event empty');
-      var span = createElement('span', '', 'No Events');
+      var span = createElement('span', '', 'Yay! No deadlines!');
 
       div.appendChild(span);
       wrapper.appendChild(div);
