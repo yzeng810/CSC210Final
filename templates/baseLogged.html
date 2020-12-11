@@ -407,9 +407,8 @@
     { eventName: 'Startup Weekend', calendar: 'Other', color: 'green' }
   ];*/
 
-
-  var programs = '{{jobTitle}}';
-  var programsData = [];
+  programs = '{{jobTitle}}';
+  //var programsData = [];
   
   var deadlines = '{{jobDeadline}}';
   var data = [];
@@ -419,7 +418,7 @@
     data.push({eventName: job});
     //, deadline: deadline
   }
-  document.getElementById("demo").innerHTML = programs;
+  document.getElementById("demo").innerHTML = programs[0];
   function addDate(ev) {
     
   }
