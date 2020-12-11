@@ -9,10 +9,11 @@
 .calendarContainer {
 /*	display: grid;
 	grid-template-columns: 1.5fr 1fr;*/
+	background-color: #faf8f6;
 	margin: 0 auto;
 	width: 100%;
-	margin-bottom: 100px;
-	margin-top: 80px;
+	padding-bottom: 100px;
+	padding-top: 80px;
 }
 
 .calendar {
@@ -248,20 +249,6 @@
   -webkit-animation: moveToTopFade .5s ease both;
   -moz-animation: moveToTopFade .5s ease both;
   animation: moveToTopFade .5s ease both;
-}
-
-.arrow {
-  position: absolute;
-  top: -3px;
-  margin-left: -2px;
-  width: 0px;
-  height: 0px;
-  
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  
-  border-bottom: 10px solid black;
-  transition: all 0.7s ease;
 }
 
 .events {

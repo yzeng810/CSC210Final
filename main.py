@@ -15,6 +15,11 @@ def index():
 def dashboard():
 	return render_template('dashboard.html', name=current_user.name)
 
+@main.route('/task')
+@login_required
+def task():
+	return render_template('task.html', name=current_user.name)
+
 @main.route('/account')
 @login_required
 def account():
