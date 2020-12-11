@@ -136,5 +136,8 @@ def job_delete(job_id):
 	flash('Your application has been deleted')
 	return redirect(url_for('main.job'))
 
-#@main.route('/reset_password', methods=['GET','POST'])
-#def reset_request():
+@main.route('/calendar')
+@login_required
+def calendar():
+	jobs = Job.query.filter_by(user_id=current_user.id)
+	return render_template('calendar.html', jobs=jobs)
