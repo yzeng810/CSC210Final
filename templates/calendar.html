@@ -73,7 +73,8 @@
     var self = this;
     
     this.events.forEach(function(ev) {
-     ev.date = self.current.clone().date(Math.random() * (29 - 1) + 1);
+     //ev.date = self.current.clone().date(Math.random() * (29 - 1) + 1);
+     ev.date = moment(ev.eventDate)
     });
     
     
@@ -345,9 +346,9 @@
   var data = [];
   for(i=0; i < programs.length; i++){
     var job = programs[i];
-    data.push({eventName: job});
+    data.push({eventName: job, eventDate: deadlines[i]});
   }
-  document.getElementById("demo").innerHTML = programs[0];
+  //document.getElementById("demo").innerHTML = deadlines[0];
   function addDate(ev) {
   }
   
