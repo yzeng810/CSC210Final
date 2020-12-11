@@ -18,6 +18,23 @@
 box-shadow: 2px 5px 16px 0px #4f4f4f, 5px 5px 15px 5px rgba(0,0,0,0);
 }
 
+.addButton {
+	margin-top: 80px;
+}
+
+.addButton button {
+	background-image:  url(../images/addButton.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	background-color: transparent;
+	border: none;
+	width: 100px;
+	height: 100px;
+	outline: none;
+
+}
+
 .todolist h1{
 	border-top-left-radius: 30px;
 	border-top-right-radius: 30px;
@@ -64,6 +81,13 @@ box-shadow: 2px 5px 16px 0px #4f4f4f, 5px 5px 15px 5px rgba(0,0,0,0);
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	color: #888783;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 100;
+	padding-top: 80px;
 }
 
 
