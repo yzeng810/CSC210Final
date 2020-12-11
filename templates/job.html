@@ -2,7 +2,7 @@
 
 {% block content %}
 	
-	<div class="appContainer">
+	<div class="appContainer sectionContainer">
 		{% with messages = get_flashed_messages() %}
 		{% if messages %}
 			{% for msg in messages %}
@@ -11,28 +11,49 @@
 		{% endif %}
 		{% endwith %}
 
-			<h1>All Applications</h1>
+		<div class="appContent">
+			<h1>Applications</h1>
 
 			<div class="appcards">
 				{% for job in jobs %}
+				<div class="scene">
 					<div class="card">
 						<div class="card__face card__face--front">
 							<img src="{{ url_for('static', filename='images/unknownCompany.png') }}">
 						</div>
 
 						<div class="card__face card__face--back">
-							<li>{{job.company}}</li>
+							<ul>
+							<li class="cardItem"><p class="cardTitle">Program</p><p>{{job.program}}</p></li>
+							<li class="cardItem"><p class="cardTitle">Company</p><p>{{job.company}}</p></li>
+							<li class="cardItem"><p class="cardTitle">Deadline</p><p>{{job.deadline}}</p></li>
 							<li><a href="{{url_for('main.job_single', job_id=job.id)}}">Go to this job</a></li>
 							<li><a href="{{url_for('main.job_update', job_id=job.id)}}">Update</a></li>
 							<li><a href="{{url_for('main.job_delete', job_id=job.id)}}">Delete</a></li>
+							</ul>
 						</div>
 					</div>
+				</div>
 				{% endfor %}
 			</div>
-		
+		</div>
 		
 	</div>
 	
-	
+<script>
+
+	const cards = document.querySelectorAll(`.card`);
+	for ( var i = 0; i < cards.length; i++ ) {
+ 		const selectedCard = cards[i];
+  		cardFlip(selectedCard);
+	}
+
+	function cardFlip(selectedCard) {
+ 		 selectedCard.addEventListener(`click`, function() {
+    	 const cardState = selectedCard.classList;
+    	cardState.toggle(`is-flipped`);
+  	});
+}
+</script>
 	
 {% endblock %}
