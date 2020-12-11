@@ -384,7 +384,7 @@
   }
 }();
 
-!function() {
+!function(){
   /*var data = [
     { eventName: 'Lunch Meeting w/ Mark', calendar: 'Work', color: 'orange' },
     { eventName: 'Interview - Jr. Web Developer', calendar: 'Work', color: 'orange' },
@@ -408,9 +408,18 @@
   ];*/
 
 
-  var data = '{{jobs}}';
-  print(data)
-
+  var programs = '{{jobTitle}}';
+  var programsData = [];
+  
+  var deadlines = '{{jobDeadline}}';
+  var data = [];
+  for(i=0; i < programs.length; i++){
+    var job = programs[i];
+    //var deadline = deadlines[i];
+    data.push({eventName: job});
+    //, deadline: deadline
+  }
+  document.getElementById("demo").innerHTML = programs;
   function addDate(ev) {
     
   }
