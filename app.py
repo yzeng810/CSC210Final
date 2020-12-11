@@ -35,7 +35,6 @@ app.config['MAIL_USERNAME'] = os.environ.get('EMAIL_USER')
 app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASS')
 mail = Mail(app)
 
-
 from models import User
 @login_manager.user_loader
 def load_user(user_id):
