@@ -57,6 +57,36 @@ def incomplete(id):
 	db.session.commit()
 	return redirect(url_for('main.task'))
 
+# @main.route('/task_update/<int:task_id>', methods=['GET','POST'])
+# @login_required
+# def task_update(task_id):
+# 	job = Job.query.get_or_404(task_id)
+# 	if request.method == "POST":
+# 		item = request.form.get('item')
+# 		notes = request.form.get('notes')
+# 		due = datetime.strptime(request.form.get('due'), "%Y-%m-%d").date()
+		
+# 		job.program = program
+# 		job.company = company
+# 		job.deadline = deadline
+# 		job.resumeNotes = resumeNotes
+# 		job.coverletterNotes = coverletterNotes
+# 		job.transcriptNotes = transcriptNotes
+# 		job.onlineFormNotes = onlineFormNotes
+# 		db.session.commit()
+# 		return redirect(url_for('main.job_single', job_id=job.id))
+	
+# 	return render_template('update_job.html', job=job)
+
+# @main.route('/job_delete/<int:job_id>', methods=['GET','POST'])
+# @login_required
+# def job_delete(job_id):
+# 	job = Job.query.get_or_404(job_id)
+# 	db.session.delete(job)
+# 	db.session.commit()
+# 	flash('Your application has been deleted')
+# 	return redirect(url_for('main.job'))
+
 @main.route('/account')
 @login_required
 def account():
