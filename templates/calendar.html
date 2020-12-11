@@ -4,7 +4,6 @@
 	{% for job in jobData %}
 		{{job}}
 	{% endfor %}
-<h1 id="demo"></h1>
 <div class="calendarContainer">
 	<div class="calendar" id="calendar"></div>
 </div>
@@ -346,7 +345,7 @@
   var data = [];
   for(i=0; i < programs.length; i++){
     var job = programs[i];
-    data.push({eventName: job, eventDate: deadlines[i]});
+    data.push({eventName: job, eventDate: deadlines[i],  calendar: 'Work', color: 'orange'});
   }
   //document.getElementById("demo").innerHTML = deadlines[0];
   function addDate(ev) {

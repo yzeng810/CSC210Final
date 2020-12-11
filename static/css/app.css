@@ -1,5 +1,23 @@
-* {
+/** {
 	border: 1px solid hotpink;
-}
+}*/
 
 /* General for header */
+.appContainer {
+	margin: 0 auto;
+	font-family:  'Poppins', sans-serif;
+	width: 1200px;
+	min-height: 100%;
+}
+
+.appContent {
+	margin: 0 auto;
+	min-height: 100%;
+}
+
+.appcards {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 0 auto;
+}
