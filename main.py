@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for, abort
 from flask_login import login_required, current_user
-from app import db
+from app import db, bcrypt
 from models import User, Job, Task, Assessment
 from datetime import datetime
 
@@ -46,6 +46,20 @@ def account_post():
 			flash('You email address has been updated!')
 
 	return redirect(url_for('main.account'))
+
+@main.route('/account/reset_password', methods=['POST'])
+@login_required
+def account_reset():
+	password = request.form.get('password')
+	verify = request.form.get('verify')
+	if password == verify:
+		current_user.password = bcrypt.generate_password_hash(password).decode('utf-8')
+		db.session.commit()
+		flash('Your password has been updated')
+		return redirect(url_for('main.account'))
+	else:
+		flash('The password and verify password field do not match')
+		return redirect(url_for('main.account'))
 
 @main.route('/job/new', methods=['GET','POST'])
 @login_required
