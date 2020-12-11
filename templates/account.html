@@ -7,7 +7,6 @@
 	<form method="POST" action="/account">
 		{% with messages = get_flashed_messages() %}
 			{% if messages %}
-				<p class="errorMessage">Sorry, couldn't process your requests.</p>
 				{% for msg in messages %}
 					<p class="errorMessage">{{ msg }}</p>
 				{% endfor %}
@@ -20,7 +19,7 @@
 	</form>
 
 	<h2>Reset Password</h2>
-	<form method="POST" action="">
+	<form method="POST" action="/request_reset">
 		<!-- <h2>Login as an existing user</h2> -->
 		{% with messages = get_flashed_messages() %}
 			{% if messages %}

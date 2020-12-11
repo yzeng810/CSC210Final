@@ -20,6 +20,11 @@ def dashboard():
 def account():
 	return render_template('account.html', name=current_user.name)
 
+@main.route('/preference')
+@login_required
+def preference():
+	return render_template('preference.html', name=current_user.name)
+
 @main.route('/account', methods=['POST'])
 @login_required
 def account_post():
