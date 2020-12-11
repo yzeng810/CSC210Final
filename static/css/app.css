@@ -84,6 +84,14 @@
   border-radius: 30px;
 }
 
+/*.card__face--back:nth-child(odd){
+	background-color: #c5afc5;
+}
+
+.card__face--back:nth-child(even){
+	background-color: white;
+}*/
+
 .card ul {
 	margin-top: 40px;
 }
