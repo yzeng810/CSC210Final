@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<li>{{task.item}}</li>
+	<li>{{task.due}}</li>
+	<li><a href="{{url_for('main.task_update', task_id=task.id)}}">Update</a></li>
+	<li><a href="{{url_for('main.task_delete', task_id=task.id)}}">Delete</a></li>
+	<li><a href="{{url_for('main.task')}}">Back</a></li>
+
+
+{% endblock %}

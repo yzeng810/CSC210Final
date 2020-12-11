@@ -57,18 +57,25 @@ def incomplete(id):
 	db.session.commit()
 	return redirect(url_for('main.task'))
 
-# @main.route('/task_update/<int:task_id>', methods=['GET','POST'])
-# @login_required
-# def task_update(task_id):
-# 	job = Job.query.get_or_404(task_id)
-# 	if request.method == "POST":
-# 		item = request.form.get('item')
-# 		notes = request.form.get('notes')
-# 		due = datetime.strptime(request.form.get('due'), "%Y-%m-%d").date()
-#		job_id = request.form.get('job')
-# 		db.session.commit()
-# 		return redirect(url_for('main.task_single', task_id=task.id))
-# 	return render_template('update_task.html', task=task)
+@main.route('/task_single/<int:task_id>')
+@login_required
+def task_single(task_id):
+	task = Task.query.get_or_404(task_id)
+	return render_template('task-single.html', task=task)
+
+@main.route('/task_update/<int:task_id>', methods=['GET','POST'])
+@login_required
+def task_update(task_id):
+	jobs = Job.query.filter_by(user_id=current_user.id)
+	task = Task.query.filter_by(id=task_id).first()
+	if request.method == "POST":
+		item = request.form.get('item')
+		notes = request.form.get('notes')
+		due = datetime.strptime(request.form.get('due'), "%Y-%m-%d").date()
+		job_id = request.form.get('job')
+		db.session.commit()
+		return redirect(url_for('main.task_single', task_id=task.id))
+	return render_template('update_task.html', task=task, jobs=jobs)
 
 @main.route('/task_delete/<int:task_id>', methods=['GET','POST'])
 @login_required
