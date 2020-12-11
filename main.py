@@ -20,6 +20,11 @@ def dashboard():
 def account():
 	return render_template('account.html', name=current_user.name)
 
+@main.route('/calendar')
+@login_required
+def calendar():
+	return render_template('calendar.html', name=current_user.name)
+
 @main.route('/preference')
 @login_required
 def preference():
