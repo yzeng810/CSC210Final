@@ -1,18 +1,37 @@
 {% extends "dashboardBase.html" %}
 
 {% block dashboard %}
-<div class="dashContent">
+<div class="dashContent notifications">
 
 	<h2>Email Notifications</h2>
-	<div class="emailNotiInfo">
-		<div class="infoItem">
+	<div class="profileContent">
+
+		<div class="profileItem">
 			<h3>Email Notification</h3>
 			<p>On</p>
+		</div>
+
+		<div class="profileItem">
+			<h3>Notify Before</h3>
+			<p>1 day</p>
 		</div>
 		
 	</div>
 
-	<h2></h2>
+	<h2>Set Preferences</h2>
+	<form class="profileContent">
+
+		<div class="profileItem">
+			<label>Email Notification</label><br>
+			<input type="checkbox" checked>
+		</div>
+
+		<div class="profileItem">
+			<h3>Notify Before</h3>
+			<p>1 day</p>
+		</div>
+		
+	</form>
 
 </div>
 {% endblock %}

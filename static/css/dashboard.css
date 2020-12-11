@@ -104,22 +104,21 @@
 /* --------------- End ------------- */
 
 /* Account Page */
-.dashContent form {
+.settings form {
 	background-color: white;
 	border-radius: 5px;
 	padding: 20px;
 }
 
-.dashContent form * {
+.settings form * {
 	margin-left: 20px;
 }
 
-.dashContent label {
+.settings label {
 	font-size: 16px;
 	color: #888783;
 	letter-spacing: 1.5px;
 	text-transform: uppercase;
-
 }
 
 .dashInput {
@@ -151,8 +150,12 @@
 /* --------------- End ------------- */
 
 /* Preference Page */
-
-
+.notifications label {
+	margin: 0
+	font-size: 16px;
+	margin-right: 40px;
+	letter-spacing: 1.2px;
+}
 /* --------------- End ------------- */
 
 
@@ -162,5 +165,10 @@
 
 .dashHeader h1:hover {
 	color: #e06253;
+}
+
+.dashInput:focus {
+	outline: none;
+	border: none;
 }
 
