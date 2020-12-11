@@ -1,0 +1,24 @@
+{% extends "dashboardBase.html" %}
+
+{% block dashboard %}
+<div class="dashContent">
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<p class="errorMessage">Sorry, couldn't process your requests.</p>
+			{% for msg in messages %}
+				<p class="errorMessage">{{ msg }}</p>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+
+	<h2>Change Login Info</h2>
+	<form method="POST" action="/account">
+		<label for="email">Email:</label><input type="email" name="email" id="email" value="{{current_user.email}}" required>
+		<label for="name">Name:</label><input type="text" name="name" id="name" value="{{current_user.name}}" required>
+		<!--<label for="password">Password:</label><input type="password" name="password" id="password" required placeholder="Enter Your Password">-->
+		<input type="submit" value="Update" class="submit" id="submit">
+	</form>
+	<a href="{{url_for('auth.request_reset')}}">Change Password</a>
+
+</div>
+{% endblock %}

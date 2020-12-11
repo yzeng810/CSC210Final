@@ -5,7 +5,6 @@
 	<title>Job Tracer</title>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/nav.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/loginsys.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dashboard.css') }}">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap" rel="stylesheet">
@@ -36,11 +35,26 @@
 	</nav>
 	
 
-	<div class="container">
-		{% block content %}
-		{% endblock %}
-	</div>
+	{% block content %}
+	{% endblock %}
+	
+	<footer class="sectionContainer">
+			<div class="content footerContent containAlignCenter">
+				<div class="webName">
+					<h3>OfferTracer</h3>
+					<p>Best Tool of Application Management</p>
+				</div>
+				<div class="developer">
+					<h3>@ University of Rochester CSC 210 TEAM VIII</h3>
+					<p>Content Creator | Keyuan Qin</p>
+					<p>Visual Designer | Yuqi Zeng</p>
+					<p>Back-end Coder | Qianwen Fu</p>
+				</div>
+			</div>
+	</footer>
 	{% endif %}
+<!-- 
+<script src="{{ url_for('static', filename='js/menu-highlighter.js') }}"></script> -->
 
 </body>
 </html>

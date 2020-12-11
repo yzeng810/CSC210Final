@@ -1,8 +1,29 @@
-{% extends "baseLogged.html" %}
+{% extends "dashboardBase.html" %}
 
-{% block content %}
-<div class="dashHeader sectionContainer">
-	<h1>Welcome, {{ name }}</h1>
-</div>
+{% block dashboard %}
 
+	<div class="dashContent">
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				<p class="errorMessage">Sorry, couldn't process your requests.</p>
+				{% for msg in messages %}
+					<p class="errorMessage">{{ msg }}</p>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+		
+		<h2>Login Info</h2>
+		<div class="profileContent">
+			<div class="profileItem">
+				<h3>Username</h3>
+				<p>{{current_user.name}}</p>
+			</div>
+			<div class="profileItem">
+				<h3>Email</h3>
+				<p>{{current_user.email}}</p>
+			</div>
+		</div>
+	</div>
+
+	
 {% endblock %}

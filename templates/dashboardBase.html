@@ -1,0 +1,24 @@
+{% extends "baseLogged.html" %}
+
+{% block content %}
+<div class="dashContainer">
+<div class="dashHeader sectionContainer">
+	<div class="content">
+		<h1>Welcome, {{ name }}</h1>
+	</div>
+</div>
+
+<nav class="dashMenu">
+	<a href="{{url_for('main.dashboard')}}">Profile</a>
+	<a href="">Preferences</a>
+	<a href="{{url_for('main.account')}}">Settings</a>
+</nav>
+
+<div class="dashContentContainer">
+	{% block dashboard %}
+	{% endblock %}
+</div>
+
+</div>
+
+{% endblock %}
