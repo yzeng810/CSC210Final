@@ -67,12 +67,16 @@ def task_single(task_id):
 @login_required
 def task_update(task_id):
 	jobs = Job.query.filter_by(user_id=current_user.id)
-	task = Task.query.filter_by(id=task_id).first()
+	task = Task.query.get_or_404(task_id)
 	if request.method == "POST":
 		item = request.form.get('item')
 		notes = request.form.get('notes')
 		due = datetime.strptime(request.form.get('due'), "%Y-%m-%d").date()
-		job_id = request.form.get('job')
+		job_id = request.form.get('job_id')
+		task.item = item
+		task.notes = notes
+		task.due = due
+		task.job_id = job_id
 		db.session.commit()
 		return redirect(url_for('main.task_single', task_id=task.id))
 	return render_template('update_task.html', task=task, jobs=jobs)

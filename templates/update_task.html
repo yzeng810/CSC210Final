@@ -12,9 +12,9 @@
 		<label for="item">Item: </label><br><input type="text" name="item" id="item" class="inputNormal" value="{{task.item}}" required><br>
 		<label for="notes">Notes: </label><br><input type="text" name="notes" id="notes" class="inputNormal" value="{{task.notes}}" required><br>
 		<label for="due">Deadline: </label><br><input type="date" name="due" id="due" class="inputNormal" value="{{task.due.date()}}" required><br>
-		<label for="job">Application:</label><br>
+		<label for="job_id">Application:</label><br>
 		{% for job in jobs %}
-		<select name="job" id="job">
+		<select name="job_id" id="job_id">
   			<option value="{{job.id}}">{{job.program}}</option>
 		</select>
 		{% endfor %}
