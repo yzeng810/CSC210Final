@@ -1,7 +1,7 @@
-{% extends "base.html" %}
+{% extends "baseLogged.html" %}
 
 {% block content %}
-<div class="sectionContainer fullContainer">
+<div class="sectionContainer updateContainer">
 	<form method="POST" action="" class="content containAlignCenter loginContent">
 		<h2>Update Task</h2>
 		{% with messages = get_flashed_messages() %}
@@ -17,8 +17,8 @@
 		{% for job in jobs %}
   			<option value="{{job.id}}">{{job.program}}</option>
 		{% endfor %}
-		</select>
-		<input type="submit" value="Update" class="submit navSignup" id="submit">
+		</select><br>
+		<input type="submit" value="Update" class="submit updateSave" id="submit">
 	</form>
 </div>
 

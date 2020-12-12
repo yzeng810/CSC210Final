@@ -1,7 +1,7 @@
-{% extends "base.html" %}
+{% extends "baseLogged.html" %}
 
 {% block content %}
-<div class="sectionContainer fullContainer">
+<div class="sectionContainer">
 	<form method="POST" action="" class="content containAlignCenter loginContent">
 		<h2>Update Application</h2>
 		{% with messages = get_flashed_messages() %}
@@ -16,7 +16,7 @@
 		<label for="coverletterNotes">Cover Letter Notes:</label><br><input type="text" name="coverletterNotes" id="coverletterNotes" class="inputNormal" value="{{job.coverletterNotes}}"><br>
 		<label for="transcriptNotes">Transcript Notes:</label><br><input type="text" name="transcriptNotes" id="transcriptNotes" class="inputNormal" value="{{job.transcriptNotes}}"><br>
 		<label for="onlineFormNotes">Online Application Form Notes:</label><br><input type="text" name="onlineFormNotes" id="onlineFormNotes" class="inputNormal" value="{{job.onlineFormNotes}}"><br>
-		<input type="submit" value="Update" class="submit navSignup" id="submit">
+		<input type="submit" value="Update" class="submit updateSave" id="submit">
 	</form>
 </div>
 
