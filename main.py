@@ -346,7 +346,8 @@ def job_complete(id):
 		job.complete = True
 	else:
 		job.complete = False
-	return redirect(url_for('main.job_single', job_id=id))
+	db.session.commit()
+	return redirect(url_for('main.job'))
 
 @main.route('/job_single/<int:job_id>', methods=['GET','POST'])
 @login_required
