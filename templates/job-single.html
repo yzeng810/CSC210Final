@@ -163,7 +163,7 @@
 				</div>
 
 				<div class="appDToolTitle">
-					<button class="appAdd" onclick="window.location.href='';"></button>
+					<button id="myBtn" class="appAdd" onclick="window.location.href='';"></button>
 					<button class="appAdd" onclick="window.location.href='';"></button>
 					<button class="appCheck" onclick="window.location.href='';"></button>
 					<button class="dEdit" onclick="window.location.href='{{url_for('main.job_update', job_id=job.id)}}';"></button>
@@ -174,6 +174,71 @@
 			</div>
 		</div>
 
-	</div>
+
+	<!-- Below code credits to W3school with modifications -->
+	<!-- The Modal -->
+	<div id="myModal" class="modal appModal">
+  		<!-- Modal content -->
+  		<div class="modal-content">
+    		<div class="modal-header">
+      			<span class="close">&times;</span>
+      			<h2>Add a new Assessment</h2>
+    		</div>
+
+    		<div class="modal-body">
+      			<form method="POST">
+					{% with messages = get_flashed_messages() %}
+						{% if messages %}
+							<p class="errorMessage">{{ messages[0] }}</p>
+						{% endif %}
+					{% endwith %}
+					<label for="title">Title: </label><br><input type="text" name="title" id="title" class="inputNewTask" required><br>
+					<label for="time">Time: </label><br><input type="date" name="time" id="time" class="inputNewTask" required><br>
+					<label for="place">Location:</label><br><input type="text" name="place" id="place" class="inputNewTask"><br>
+					<label for="iFormat">Format/Type:</label><br><input type="text" name="iFormat" id="iFormat" class="inputNewTask"><br>
+					<label for="notes">Notes:</label><br><input type="text" name="notes" id="notes" class="inputNewTask"><br>
+					<label for="job">Application: </label><br>
+					<select name="job" id="job">
+					{% for job in jobs %}
+  						<option value="{{job.id}}">{{job.program}}</option>
+					{% endfor %}
+					</select><br>
+					<input type="submit" value="Create" class="submitNewTask" id="submit">
+      			</form>
+    		</div>
+
+  		</div>
+  	</div>
+
+</div>
+
+<script>
+// Below code credits to W3school with modifications
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
 
 {% endblock %}
