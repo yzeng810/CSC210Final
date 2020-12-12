@@ -82,7 +82,7 @@ def task_update(task_id):
 		item = request.form.get('item')
 		notes = request.form.get('notes')
 		due = datetime.strptime(request.form.get('due'), "%Y-%m-%d").date()
-		job_id = request.form.get('job_id')
+		job_id = request.form.get('job')
 		task.item = item
 		task.notes = notes
 		task.due = due
