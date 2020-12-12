@@ -43,7 +43,7 @@
     		</div>
 
     		<div class="modal-body">
-      			<form>
+      			<form method="POST">
 					{% with messages = get_flashed_messages() %}
 						{% if messages %}
 							<p class="errorMessage">{{ messages[0] }}</p>

@@ -227,12 +227,25 @@ def new_job():
 	return render_template('create_job.html')
 
 #show all the applications added by the user
-@main.route('/job')
+@main.route('/job', methods=['GET','POST'])
 @login_required
 def job():
 	jobs = Job.query.filter_by(user_id=current_user.id)
 	assessments = Assessment.query.all()
 	#assessments = Assessment.query.filter_by(user_id=current_user.id)
+	if request.method == "POST":
+		program = request.form.get('program')
+		company = request.form.get('company')
+		deadline = datetime.strptime(request.form.get('deadline'), "%Y-%m-%d").date()
+		resumeNotes = request.form.get('resumeNotes')
+		coverletterNotes = request.form.get('coverletterNotes')
+		transcriptNotes = request.form.get('transcriptNotes')
+		onlineFormNotes = request.form.get('onlineFormNotes')
+		job = Job(program=program, company=company, deadline=deadline, resume=False, resumeNotes=resumeNotes, coverletter=False, coverletterNotes=coverletterNotes, 
+			transcript=False, transcriptNotes=transcriptNotes, onlineForm=False, onlineFormNotes=onlineFormNotes, user_id=current_user.id)
+		db.session.add(job)
+		db.session.commit()
+		return redirect(url_for('main.job'))
 	return render_template('job.html', jobs=jobs, name=current_user.name, assessments=assessments)
 
 @main.route('/job_single/<int:job_id>')
