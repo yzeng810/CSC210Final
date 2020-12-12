@@ -58,7 +58,6 @@ def logout():
 	return redirect(url_for('main.index'))
 
 @auth.route('/request_reset', methods=['GET','POST'])
-@login_required
 def request_reset():
 	if request.method == "POST":
 		email = request.form.get('email')

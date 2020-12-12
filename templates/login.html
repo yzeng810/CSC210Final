@@ -11,6 +11,7 @@
 		{% endwith %}
 		<label for="email">Email</label><br><input type="email" name="email" id="email" class="inputNormal" required><br>
 		<label for="password">Password</label><br><input type="password" name="password" id="password" class="inputNormal" required><br>
+		<a href="{{url_for('auth.request_reset')}}">Forgot Password?</a>
 		<input type="submit" value="Login" class="submit navSignup" id="submit">
 	</form>
 </div>
