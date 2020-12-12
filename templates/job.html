@@ -1,7 +1,7 @@
 {% extends "baseLogged.html" %}
 
 {% block content %}
-	
+
 	<div class="appContainer sectionContainer">
 		{% with messages = get_flashed_messages() %}
 		{% if messages %}
@@ -13,6 +13,9 @@
 
 		<div class="appContent">
 			<h1>Applications</h1>
+			{% for assessment in assessments %}
+					{{assessment}}
+			{% endfor %}
 
 			<div class="appcards">
 				{% for job in jobs %}
