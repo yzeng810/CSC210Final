@@ -1,11 +1,51 @@
 {% extends "baseLogged.html" %}
 
 {% block content %}
-	<li>{{job.program}}</li>
-	<li>{{job.company}}</li>
-	<li><a href="{{url_for('main.job_update', job_id=job.id)}}">Update</a></li>
-	<li><a href="{{url_for('main.job_delete', job_id=job.id)}}">Delete</a></li>
-	<li><a href="{{url_for('main.job')}}">Back</a></li>
 
+	<div class="appDetailContainer">
+
+		<div class="appDetailContent">
+
+			<div class="appDGoBack">
+				<button onclick="window.location.href='{{url_for('main.job')}}';"></button>
+			</div>
+
+			<div class="appDHeader">
+				<div class="companyPosition">
+					<h1>Summer Investment Banking Analyst</h1>
+					<h2>Goldman Sachs</h2>
+				</div>
+
+				<div class="appDeadline">
+					<h2>2020-11-20</h2>
+					<p><a href="{{url_for('main.job_update', job_id=job.id)}}">Update</a>/<a href="{{url_for('main.job_delete', job_id=job.id)}}">Delete</a></p>
+				</div>
+			</div>
+
+			<div class="appDDoc">
+				<div class="appDRes">
+					
+				</div>
+
+				<div class="appDcv">
+					
+				</div>
+
+				<div class="appDTrans">
+					
+				</div>
+			</div>
+			
+			
+
+		</div>
+
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li><a href="{{url_for('main.job')}}">Back</a></li>
+
+	</div>
 
 {% endblock %}
