@@ -158,12 +158,45 @@ def new_assessment():
 		place = request.form.get('place')
 		iFormat = request.form.get('iFormat')
 		notes = request.form.get('notes')
-		job_id = request.form.get('job_id')
+		job_id = request.form.get('job')
 		assessment = Assessment(title=title, time=time, place=place, iFormat=iFormat, notes=notes, job_id=job_id)
 		db.session.add(assessment)
 		db.session.commit()
 		return redirect(url_for('main.job'))
 	return render_template('create_assessment.html', jobs=jobs)
+
+@main.route('/assessment_update/<int:assessment_id>', methods=['GET','POST'])
+@login_required
+def assessment_update(assessment_id):
+	jobs = Job.query.filter_by(user_id=current_user.id)
+	assessment = Assessment.query.get_or_404(assessment_id)
+	if request.method == "POST":
+		title = request.form.get('title')
+		place = request.form.get('place')
+		time = datetime.strptime(request.form.get('time'), "%Y-%m-%d").date()
+		notes = request.form.get('notes')
+		iFormat = request.form.get('iFormat')
+		job_id = request.form.get('job')
+		
+		assessment.title = title
+		assessment.place = place
+		assessment.time = time
+		assessment.notes = notes
+		assessment.iFormat = iFormat
+		assessment.job_id = job_id
+		db.session.commit()
+		return redirect(url_for('main.job', assessment_id=assessment.id))
+	
+	return render_template('update_assessment.html', jobs=jobs, assessment=assessment)
+
+@main.route('/assessment_delete/<int:assessment_id>', methods=['GET','POST'])
+@login_required
+def assessment_delete(assessment_id):
+	assessment = Assessment.query.get_or_404(assessment_id)
+	db.session.delete(assessment)
+	db.session.commit()
+	flash('Your assessment has been deleted')
+	return redirect(url_for('main.job'))
 
 @main.route('/job/new', methods=['GET','POST'])
 @login_required
@@ -188,7 +221,8 @@ def new_job():
 @login_required
 def job():
 	jobs = Job.query.filter_by(user_id=current_user.id)
-	assessments = Assessment.query.filter_by(user_id=current_user.id)
+	assessments = Assessment.query.all()
+	#assessments = Assessment.query.filter_by(user_id=current_user.id)
 	return render_template('job.html', jobs=jobs, name=current_user.name, assessments=assessments)
 
 @main.route('/job_single/<int:job_id>')

@@ -13,6 +13,8 @@ class User(UserMixin, db.Model):
 	jobs = db.relationship('Job', backref='author', lazy=True)
 	#build relationship with task
 	tasks = db.relationship('Task', backref='author', lazy=True)
+	#build relationship with assessment
+	#assessments = db.relationship('Assessment', backref='author', lazy=True)
 
 	def get_reset_token(self, expires_sec=1800):
 		s = Serializer(app.config['SECRET_KEY'], expires_sec)
@@ -35,6 +37,7 @@ class Job(db.Model):
 	program = db.Column(db.String(100), nullable=False)
 	company = db.Column(db.String(100), nullable=False)
 	deadline = db.Column(db.DateTime)
+	#complete = db.Column(db.Boolean(False), nullable=False)
 
 	#default items to be submitted for an application - predefined in the database so that the user don't need to create each time
 	resume = db.Column(db.Boolean(False), nullable=False)
@@ -78,9 +81,12 @@ class Assessment(db.Model): #interview or online assessment
 	place = db.Column(db.Text) #location where the interview takes place E.G. physical address/online zoom room link and passcode
 	iFormat = db.Column(db.String(100)) #online assessment/interview/group interview...
 	notes = db.Column(db.String(100)) #any notes about this assessment 
+	#complete = db.Column(db.Boolean(False), nullable=False)
+	
 	#build relationship with job
 	job_id = db.Column(db.Integer, db.ForeignKey('job.id'))
-
+	#build relationship with user
+	#user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 	def __repr__(self):
 		return f"Assessment('{self.title}','{self.time}','{self.iFormat}')"
 
