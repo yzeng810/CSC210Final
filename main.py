@@ -341,7 +341,7 @@ def job():
 @main.route('/job_complete/<id>')
 @login_required
 def job_complete(id):
-	job = Job.query.filter_by(id=id)
+	job = Job.query.filter_by(id=id).first()
 	if job.complete == False:
 		job.complete = True
 	else:
