@@ -69,14 +69,14 @@
     		</div>
 
     		<div class="modal-body">
-      			<form>
+      			<form method="POST" action="{{url_for('main.task')}}">
 					{% with messages = get_flashed_messages() %}
 						{% if messages %}
 							<p class="errorMessage">{{ messages[0] }}</p>
 						{% endif %}
 					{% endwith %}
 					<label for="item">Item</label><br><input type="text" name="item" id="item" class="inputNewTask" required><br>
-					<label for="notes">Notes</label><br><input type="text" name="notes" id="notes" class="inputNewTask" required><br>
+					<label for="notes">Notes</label><br><input type="text" name="notes" id="notes" class="inputNewTask"><br>
 					<label for="due">Deadline</label><br><input type="date" name="due" id="due" class="inputNewTask" required><br>
 					<label for="job">Application</label><br>
 					<select name="job" id="job">
@@ -84,7 +84,7 @@
 						<option value="{{job.id}}">{{job.program}}</option>
 					{% endfor %}
 					</select><br>
-					<input type="submit" value="Create" class="submitNewTask" id="submit" onclick="window.location.href='{{url_for('main.new_task')}}';">
+					<input type="submit" value="Create" class="submitNewTask" id="submit">
       			</form>
     		</div>
 

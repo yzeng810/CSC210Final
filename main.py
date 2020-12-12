@@ -15,18 +15,27 @@ def index():
 def dashboard():
 	return render_template('dashboard.html', name=current_user.name)
 
-@main.route('/task')
+@main.route('/task', methods=['GET','POST'])
 @login_required
 def task():
 	tasks = []
 	completed = []
 	data = Task.query.filter_by(user_id=current_user.id)
 	jobs = Job.query.filter_by(user_id=current_user.id)
-	for task in data:
-		if task.complete == False:
-			tasks.append(task)
+	for stuff in data:
+		if stuff.complete == False:
+			tasks.append(stuff)
 		else:
-			completed.append(task)
+			completed.append(stuff)
+	if request.method == "POST":
+		item = request.form.get('item')
+		notes = request.form.get('notes')
+		due = datetime.strptime(request.form.get('due'), "%Y-%m-%d").date()
+		job_id = request.form.get('job')
+		task = Task(item=item, notes=notes, due=due, complete=False, user_id=current_user.id, job_id=job_id)
+		db.session.add(task)
+		db.session.commit()
+		return redirect(url_for('main.task'))
 	return render_template('task.html', name=current_user.name, tasks=tasks, completed=completed, jobs=jobs, id=current_user.id)
 
 @main.route('/task/new', methods=['GET','POST'])
