@@ -29,11 +29,11 @@ login_manager.login_view = 'auth.login'
 login_manager.init_app(app)
 
 #mail
-app.config['MAIL_SERVER'] = 'smtp.googlemail.com'
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_USERNAME'] = os.environ.get('EMAIL_USER')
-app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASS')
+app.config['MAIL_USERNAME'] = 'OfferTracer210@gmail.com'
+app.config['MAIL_PASSWORD'] = 'OfferTracer210,,'
 mail = Mail(app)
 
 migrate = Migrate(app, db)
