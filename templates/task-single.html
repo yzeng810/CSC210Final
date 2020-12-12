@@ -1,11 +1,41 @@
 {% extends "baseLogged.html" %}
 
 {% block content %}
-	<li>{{task.item}}</li>
-	<li>{{task.due}}</li>
-	<li><a href="{{url_for('main.task_update', task_id=task.id)}}">Update</a></li>
-	<li><a href="{{url_for('main.task_delete', task_id=task.id)}}">Delete</a></li>
-	<li><a href="{{url_for('main.task')}}">Back</a></li>
+<div class="taskContainer sectionContainer">
+	<div class="todolist">
+		<h1>{{task.item}}<br><span class="taskTitleSpan">Due on {{task.due.strftime("%Y-%m-%d")}}</span></h1>
+		<div class="taskDetails">
+
+			<div class="taskNotes">
+				<h2>Notes</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</div>
+
+			<div class="taskDetailAction">
+				<div class="taskDetailActTitle taskDetailAct">
+					<p class="complete">Related App</p>
+					<p class="complete">Edit</p>
+					<p class="complete">Delete</p>
+					<p class="complete">Go Back</p>
+				</div>
+				<div class="taskDetailAct">
+					<button class="rappButton" onclick="window.location.href='';"></button>
+					<button class="dEdit" onclick="window.location.href='{{url_for('main.task_update', task_id=task.id)}}';"></button>
+					<button class="dDelte" onclick="window.location.href='{{url_for('main.task_delete', task_id=task.id)}}';"></button>
+					<button class="dBack" onclick="window.location.href='{{url_for('main.task')}}';"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
 
 
 {% endblock %}

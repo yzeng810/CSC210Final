@@ -2,9 +2,6 @@
 
 {% block content %}
 <div class="taskContainer sectionContainer">
-	<div class="button">
-		
-	</div>
 	<div class="todolist">
 		<h1>Tasks</h1>
 		<ul class="taskList">
@@ -17,6 +14,7 @@
 						<p class="complete">Checked</p>
 						<p class="complete">Edit</p>
 						<p class="complete">Delete</p>
+						<p class="complete">Detail</p>
 					</div>
 					<div class="taskItemRec taskIteminner">
 						<p>{{task.item}}</p>
@@ -24,6 +22,7 @@
 						<p class="complete"><input type="checkbox" name="complete" onclick="window.location.href='{{url_for('main.complete', id = task.id)}}';" value="complete"></p>
 						<button class="edit" onclick="window.location.href='{{url_for('main.task_update', task_id = task.id)}}';"></button>
 						<button class="delete" onclick="window.location.href='{{url_for('main.task_delete', task_id = task.id)}}';"></button>
+						<button class="detail" onclick="window.location.href='{{url_for('main.task_single', task_id = task.id)}}';"></button>
 					</div>
 				</li>
 				{% endfor %}
@@ -41,6 +40,7 @@
 						<p class="complete">Checked</p>
 						<p class="complete">Edit</p>
 						<p class="complete">Delete</p>
+						<p class="complete">Detail</p>
 					</div>
 					<div class="taskItemRec taskIteminner">
 						<p>{{task.item}}</p>
@@ -48,6 +48,7 @@
 						<p class="complete"><input type="checkbox" name="complete" onclick="window.location.href='{{url_for('main.incomplete', id = task.id)}}';" value="incomplete" checked></p>
 						<button class="edit" onclick="window.location.href='{{url_for('main.task_update', task_id = task.id)}}';"></button>
 						<button class="delete" onclick="window.location.href='{{url_for('main.task_delete', task_id = task.id)}}';"></button>
+						<button class="detail" onclick="window.location.href='{{url_for('main.task_single', task_id = task.id)}}';"></button>
 					</div>
 				</li>
 				{% endfor %}
