@@ -187,7 +187,7 @@
 				<div class="appDToolTitle">
 					<button id="myBtn" class="appAdd" onclick="window.location.href='';"></button>
 					<button class="appAdd" onclick="window.location.href='{{url_for('main.new_task')}}';"></button>
-					<button class="appCheck" onclick="window.location.href='';"></button>
+					<button class="appCheck" onclick="window.location.href='{{url_for('main.job_complete', id=job.id)}}';"></button>
 					<button class="dEdit" onclick="window.location.href='{{url_for('main.job_update', job_id=job.id)}}';"></button>
 					<button class="dDelte" onclick="window.location.href='{{url_for('main.job_delete', job_id=job.id)}}';"></button>
 					<button class="dBack" onclick="window.location.href='{{url_for('main.job')}}';"></button>

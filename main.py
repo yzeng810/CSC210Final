@@ -338,6 +338,16 @@ def job():
 		return redirect(url_for('main.job'))
 	return render_template('job.html', jobs=jobs, name=current_user.name, assessments=assessments)
 
+@main.route('/job_complete/<id>')
+@login_required
+def job_complete(id):
+	job = Job.query.filter_by(id=id)
+	if job.complete == False:
+		job.complete = True
+	else:
+		job.complete = False
+	return redirect(url_for('main.job_single', job_id=id))
+
 @main.route('/job_single/<int:job_id>', methods=['GET','POST'])
 @login_required
 def job_single(job_id):
