@@ -208,6 +208,62 @@ def assessment_delete(assessment_id):
 	flash('Your assessment has been deleted')
 	return redirect(url_for('main.job'))
 
+@main.route('/assess_complete/<id>')
+def assess_complete(id):
+	assessment = Assessment.query.filter_by(id=id).first()
+	job_id = assessment.job_id
+	assessment.complete = True
+	db.session.commit()
+	return redirect(url_for('main.job_single', job_id=job_id))
+
+@main.route('/assess_incomplete/<id>')
+def assess_incomplete(id):
+	assessment = Assessment.query.filter_by(id=id).first()
+	job_id = assessment.job_id
+	assessment.complete = False
+	db.session.commit()
+	return redirect(url_for('main.job_single', job_id=job_id))
+
+@main.route('/resume/<id>')
+def resume(id):
+	job = Job.query.filter_by(id=id).first()
+	if job.resume == False:
+		job.resume = True
+	else:
+		job.resume = False
+	db.session.commit()
+	return redirect(url_for('main.job_single', job_id=id))
+
+@main.route('/coverletter/<id>')
+def coverletter(id):
+	job = Job.query.filter_by(id=id).first()
+	if job.coverletter == False:
+		job.coverletter = True
+	else:
+		job.coverletter = False
+	db.session.commit()
+	return redirect(url_for('main.job_single', job_id=id))
+
+@main.route('/transcript/<id>')
+def transcript(id):
+	job = Job.query.filter_by(id=id).first()
+	if job.transcript == False:
+		job.transcript = True
+	else:
+		job.transcript = False
+	db.session.commit()
+	return redirect(url_for('main.job_single', job_id=id))
+
+@main.route('/onlineForm/<id>')
+def onlineForm(id):
+	job = Job.query.filter_by(id=id).first()
+	if job.onlineForm == False:
+		job.onlineForm = True
+	else:
+		job.onlineForm = False
+	db.session.commit()
+	return redirect(url_for('main.job_single', job_id=id))
+
 @main.route('/job/new', methods=['GET','POST'])
 @login_required
 def new_job():
@@ -247,13 +303,58 @@ def job():
 		return redirect(url_for('main.job'))
 	return render_template('job.html', jobs=jobs, name=current_user.name, assessments=assessments)
 
-@main.route('/job_single/<int:job_id>')
+@main.route('/job_single/<int:job_id>', methods=['GET','POST'])
 @login_required
 def job_single(job_id):
 	job = Job.query.get_or_404(job_id)
-	tasks = Task.query.filter_by(job_id=job_id)
+	#assessment
 	assessments = Assessment.query.filter_by(job_id=job_id)
-	return render_template('job-single.html', job=job, tasks=tasks, assessments=assessments)
+	incomplete_assessment = []
+	complete_assessment = []
+	for stuff in assessments:
+		if stuff.complete == False:
+			incomplete_assessment.append(stuff)
+		else:
+			complete_assessment.append(stuff)
+	#tasks 
+	all_tasks = Task.query.filter_by(job_id=job_id)
+	incomplete_task = []
+	completed_task = []
+	for stuff in all_tasks:
+		if stuff.complete == False:
+			incomplete_task.append(stuff)
+		else:
+			completed_task.append(stuff)
+
+	if request.method == "POST":
+		title = request.form.get('title')
+		time = datetime.strptime(request.form.get('time'), "%Y-%m-%d").date()
+		place = request.form.get('place')
+		iFormat = request.form.get('iFormat')
+		notes = request.form.get('notes')
+		job_id = job.id
+		
+		assessment = Assessment(complete=False, title=title, time=time, place=place, iFormat=iFormat, notes=notes, job_id=job_id, user_id=current_user.id)
+		db.session.add(assessment)
+		db.session.commit()
+		return redirect(url_for('main.job_single', job_id=job.id))
+	return render_template('job-single.html', job=job, complete_assessment=complete_assessment, incomplete_assessment=incomplete_assessment, completed_task=completed_task, incomplete_task=incomplete_task)
+
+@main.route('/task_complete/<id>')
+def task_complete(id):
+	task = Task.query.filter_by(id=id).first()
+	job_id = task.job_id
+	task.complete = True
+	db.session.commit()
+	return redirect(url_for('main.job_single', job_id=job_id))
+
+@main.route('/task_incomplete/<id>')
+def task_incomplete(id):
+	task = Task.query.filter_by(id=id).first()
+	job_id = task.job_id
+	task.complete = False
+	db.session.commit()
+	return redirect(url_for('main.job_single', job_id=job_id))
 
 @main.route('/job_update/<int:job_id>', methods=['GET','POST'])
 @login_required

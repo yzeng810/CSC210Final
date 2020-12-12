@@ -8,13 +8,13 @@
 
 			<div class="appDHeader">
 				<div class="companyPosition">
-					<h1>Summer Investment Banking Analyst</h1>
-					<h2>Goldman Sachs</h2>
+					<h1>{{job.program}}</h1>
+					<h2>{{job.company}}</h2>
 				</div>
 
 				<div class="appDeadline">
 					<p>Deadline</p>
-					<h2>2020-11-20</h2>
+					<h2>{{job.deadline.strftime("%m/%d/%Y")}}</h2>
 				</div>
 			</div>
 
@@ -23,31 +23,45 @@
 			<h2>Required Documents</h2>
 			<div class="appDDoc">
 				<div class="appDRes appDDocIn">
-					<label for="">Resume</label>
-					<input type="checkbox" name="" id="" value=""><br>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat.</p>
+					<label for="resume">Resume</label>
+					{% if job.resume %}
+						<input type="checkbox" name="resume" id="resume" value="true" checked onclick="window.location.href='{{url_for('main.resume', id = job.id )}}';"><br>
+					{% else %}
+						<input type="checkbox" name="resume" id="resume" value="false" onclick="window.location.href='{{url_for('main.resume', id = job.id )}}';"><br>
+					{% endif %}
+					<p>{{job.resumeNotes}}</p>
 				</div>
 
 				<div class="appDcv appDDocIn">
-					<label for="">Cover Letter</label>
-					<input type="checkbox" name="" id="" value=""><br>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat.</p>
+					<label for="coverletter">Cover Letter</label>
+					{% if job.coverletter %}
+					<input type="checkbox" name="coverletter" id="coverletter" value="true" checked onclick="window.location.href='{{url_for('main.coverletter', id = job.id )}}';"><br>
+					{% else %}
+					<input type="checkbox" name="coverletter" id="coverletter" value="true" onclick="window.location.href='{{url_for('main.coverletter', id = job.id )}}';"><br>
+					{% endif %}
+					<p>{{job.coverletterNotes}}</p>
 				</div>
 
 				<div class="appDTrans appDDocIn">
-					<label for="">Transcript</label>
-					<input type="checkbox" name="" id="" value=""><br>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat.</p>
+					<label for="transcript">Transcript</label>
+					{% if job.transcript %}
+					<input type="checkbox" name="transcript" id="transcript" value="true" checked onclick="window.location.href='{{url_for('main.transcript', id = job.id )}}';"><br>
+					{% else %}
+					<input type="checkbox" name="transcript" id="transcript" value="true" onclick="window.location.href='{{url_for('main.transcript', id = job.id )}}';"><br>
+					{% endif %}
+					<p>{{job.transcriptNotes}}</p>
 				</div>
+
+				<div class="appDTrans appDDocIn">
+					<label for="onlineForm">Online Application Form</label>
+					{% if job.onlineForm %}
+					<input type="checkbox" name="onlineForm" id="onlineForm" value="true" checked onclick="window.location.href='{{url_for('main.onlineForm', id = job.id )}}';"><br>
+					{% else %}
+					<input type="checkbox" name="onlineForm" id="onlineForm" value="true" onclick="window.location.href='{{url_for('main.onlineForm', id = job.id )}}';"><br>
+					{% endif %}
+					<p>{{job.onlineFormNotes}}</p>
+				</div>
+
 			</div>
 
 			<h2>Assessments</h2>
@@ -56,21 +70,22 @@
 					<!-- for loop starts here -->
 					<div class="assessItem">
 
+						{% for assessment in incomplete_assessment %}
 						<div class="assessItemTool">
-							<span class="assessItemTitle">Complete</span><input type="checkbox" name="complete" onclick="'';" value="complete">
-							<span class="assessItemTitle and2">Edit</span><button class="appDedit" onclick="window.location.href='';"></button>
-							<span class="assessItemTitle and2">Delete</span><button class="appDdel" onclick="window.location.href='';"></button>
+							<span class="assessItemTitle">Complete</span><input type="checkbox" name="complete" onclick="window.location.href='{{url_for('main.assess_complete', id = assessment.id )}}';" value="complete">
+							<span class="assessItemTitle and2">Edit</span><button class="appDedit" onclick="window.location.href='{{url_for('main.assessment_update', assessment_id = assessment.id)}}';"></button>
+							<span class="assessItemTitle and2">Delete</span><button class="appDdel" onclick="window.location.href='{{url_for('main.assessment_delete', assessment_id = assessment.id)}}';"></button>
 						</div>
 						<div class="assessItem1st">
-							<p><span class="assessItemTitle">Title</span>First Round Interview</p>
-							<p><span class="assessItemTitle">Time</span>2021-10-21 2:00 PM</p>
-							<p><span class="assessItemTitle">Format</span>Face-to-Face</p>
-							<p><span class="assessItemTitle">Location</span>303E 57th Street, New York, New York</p>
+							<p><span class="assessItemTitle">Title</span>{{assessment.title}}</p>
+							<p><span class="assessItemTitle">Time</span>{{assessment.time.strftime("%m/%d/%Y")}}</p>
+							<p><span class="assessItemTitle">Format</span>{{assessment.iFormat}}</p>
+							<p><span class="assessItemTitle">Location</span>{{assessment.place}}</p>
 						</div>
 						<div class="assessItem2nd">
-							<p><span class="assessItemTitle">Notes</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							<p><span class="assessItemTitle">Notes</span>{{assessment.notes}}</p>
 						</div>
-
+						{% endfor %}
 					</div>
 					
 				</div>
@@ -78,22 +93,22 @@
 				<h3>Completed</h3>
 				<div>
 					<div class="assessItem">
-
+						{% for assessment in complete_assessment %}
 						<div class="assessItemTool">
-							<span class="assessItemTitle">Complete</span><input type="checkbox" name="complete" onclick="'';" value="complete">
-							<span class="assessItemTitle and2">Edit</span><button class="appDedit" onclick="window.location.href='';"></button>
-							<span class="assessItemTitle and2">Delete</span><button class="appDdel" onclick="window.location.href='';"></button>
+							<span class="assessItemTitle">Complete</span><input type="checkbox" name="complete" onclick="window.location.href='{{url_for('main.assess_incomplete', id = assessment.id )}}';" value="complete" checked>
+							<span class="assessItemTitle and2">Edit</span><button class="appDedit" onclick="window.location.href='{{url_for('main.assessment_update', assessment_id = assessment.id)}}';"></button>
+							<span class="assessItemTitle and2">Delete</span><button class="appDdel" onclick="window.location.href='{{url_for('main.assessment_delete', assessment_id = assessment.id)}}';"></button>
 						</div>
 						<div class="assessItem1st">
-							<p><span class="assessItemTitle">Title</span>First Round Interview</p>
-							<p><span class="assessItemTitle">Time</span>2021-10-21 2:00 PM</p>
-							<p><span class="assessItemTitle">Format</span>Face-to-Face</p>
-							<p><span class="assessItemTitle">Location</span>303E 57th Street, New York, New York</p>
+							<p><span class="assessItemTitle">Title</span>{{assessment.title}}</p>
+							<p><span class="assessItemTitle">Time</span>{{assessment.time.strftime("%m/%d/%Y")}}</p>
+							<p><span class="assessItemTitle">Format</span>{{assessment.iFormat}}</p>
+							<p><span class="assessItemTitle">Location</span>{{assessment.place}}</p>
 						</div>
 						<div class="assessItem2nd">
-							<p><span class="assessItemTitle">Notes</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							<p><span class="assessItemTitle">Notes</span>{{assessment.notes}}</p>
 						</div>
-
+						{% endfor %}
 					</div>
 
 				</div>
@@ -103,7 +118,8 @@
 			<div class="appDTask">
 				<div>
 					<ul class="taskList">
-						<!-- for loop starts here -->
+					{% if incomplete_task %}
+						{% for task in incomplete_task %}
 						<li class="taskItem">
 							<div class="taskItemTitle taskIteminner">
 								<p>Task</p>
@@ -114,21 +130,24 @@
 								<p class="complete">Detail</p>
 							</div>
 							<div class="taskItemRec taskIteminner">
-								<p>Some Task</p>
-								<p>2012-12-29</p>
-								<p class="complete"><input type="checkbox" name="complete" onclick="window.location.href='';" value="complete"></p>
-								<button class="edit" onclick="window.location.href='';"></button>
-								<button class="delete" onclick="window.location.href='';"></button>
-								<button class="detail" onclick="window.location.href='';"></button>
+								<p>{{task.item}}</p>
+								<p>{{task.due.strftime("%m/%d/%Y")}}</p>
+								<p class="complete"><input type="checkbox" name="complete" onclick="window.location.href='{{url_for('main.task_complete', id = task.id )}}';" value="complete"></p>
+								<button class="edit" onclick="window.location.href='{{url_for('main.task_update', task_id = task.id)}}';"></button>
+								<button class="delete" onclick="window.location.href='{{url_for('main.task_delete', task_id = task.id)}}';"></button>
+								<button class="detail" onclick="window.location.href='{{url_for('main.task_single', task_id = task.id)}}';"></button>
 							</div>
 						</li>
+						{% endfor %}
+					{% endif %}
 					</ul>
 				</div>
 
 				<h3>Completed</h3>
 				<div>
 					<ul class="taskList">
-						<!-- for loop starts here -->
+					{% if completed_task %}
+						{% for task in completed_task %}
 						<li class="taskItem">
 							<div class="taskItemTitle taskIteminner">
 								<p>Task</p>
@@ -139,14 +158,16 @@
 								<p class="complete">Detail</p>
 							</div>
 							<div class="taskItemRec taskIteminner">
-								<p>Some Task</p>
-								<p>2012-12-29</p>
-								<p class="complete"><input type="checkbox" name="complete" onclick="window.location.href='';" value="complete"></p>
-								<button class="edit" onclick="window.location.href='';"></button>
-								<button class="delete" onclick="window.location.href='';"></button>
-								<button class="detail" onclick="window.location.href='';"></button>
+								<p>{{task.item}}</p>
+								<p>{{task.due.strftime("%m/%d/%Y")}}</p>
+								<p class="complete"><input type="checkbox" name="complete" onclick="window.location.href='{{url_for('main.task_incomplete', id = task.id)}}';" value="complete" checked></p>
+								<button class="edit" onclick="window.location.href='{{url_for('main.task_update', task_id = task.id)}}';"></button>
+								<button class="delete" onclick="window.location.href='{{url_for('main.task_delete', task_id = task.id)}}';"></button>
+								<button class="detail" onclick="window.location.href='{{url_for('main.task_single', task_id = task.id)}}';"></button>
 							</div>
 						</li>
+						{% endfor %}
+					{% endif %}
 					</ul>
 				</div>
 			</div>
@@ -164,7 +185,7 @@
 
 				<div class="appDToolTitle">
 					<button id="myBtn" class="appAdd" onclick="window.location.href='';"></button>
-					<button class="appAdd" onclick="window.location.href='';"></button>
+					<button class="appAdd" onclick="window.location.href='{{url_for('main.new_task')}}';"></button>
 					<button class="appCheck" onclick="window.location.href='';"></button>
 					<button class="dEdit" onclick="window.location.href='{{url_for('main.job_update', job_id=job.id)}}';"></button>
 					<button class="dDelte" onclick="window.location.href='{{url_for('main.job_delete', job_id=job.id)}}';"></button>
@@ -197,12 +218,6 @@
 					<label for="place">Location:</label><br><input type="text" name="place" id="place" class="inputNewTask"><br>
 					<label for="iFormat">Format/Type:</label><br><input type="text" name="iFormat" id="iFormat" class="inputNewTask"><br>
 					<label for="notes">Notes:</label><br><input type="text" name="notes" id="notes" class="inputNewTask"><br>
-					<label for="job">Application: </label><br>
-					<select name="job" id="job">
-					{% for job in jobs %}
-  						<option value="{{job.id}}">{{job.program}}</option>
-					{% endfor %}
-					</select><br>
 					<input type="submit" value="Create" class="submitNewTask" id="submit">
       			</form>
     		</div>
