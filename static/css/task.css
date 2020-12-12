@@ -1,7 +1,7 @@
 /** {
 	border: 1px solid hotpink;
-}*/
-
+}
+*/
 /* General for header */
 .taskContainer {
 	background-color: #faf8f6;
@@ -32,14 +32,14 @@ box-shadow: 2px 5px 16px 0px #4f4f4f, 5px 5px 15px 5px rgba(0,0,0,0);
 	width: 100px;
 	height: 100px;
 	outline: none;
-
+	cursor: pointer;
 }
 
 .todolist h1{
 	border-top-left-radius: 30px;
 	border-top-right-radius: 30px;
 	margin-top: 0px;
-	padding-top: 100px;
+	padding-top: 120px;
 	padding-bottom: 50px;
 	background-image: url(../images/taskback.png);
  	background-repeat: no-repeat;
@@ -68,7 +68,7 @@ box-shadow: 2px 5px 16px 0px #4f4f4f, 5px 5px 15px 5px rgba(0,0,0,0);
 
 .taskIteminner{
 	display: grid;
-	grid-template-columns: 2fr 1.5fr 1fr;
+	grid-template-columns: 2fr 1.5fr 0.5fr 0.5fr 0.5fr;
 }
 
 .taskItemRec input {
@@ -99,5 +99,171 @@ box-shadow: 2px 5px 16px 0px #4f4f4f, 5px 5px 15px 5px rgba(0,0,0,0);
 	z-index: 100;
 	padding-top: 80px;
 }
+
+.edit {
+	margin: 0 auto;
+	outline: none;
+	border: none;
+	background-color: transparent;
+	width: 30px;
+	background-image:  url(../images/edit.png);
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-size: contain;
+	cursor: pointer;
+}
+
+.delete {
+	margin: 0 auto;
+	outline: none;
+	border: none;
+	background-color: transparent;
+	width: 30px;
+	background-image:  url(../images/delete.png);
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-size: contain;
+	cursor: pointer;
+}
+
+/*The Modal Part Credits to W3School*/
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 150px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  font-family:  'Poppins', sans-serif;
+}
+
+/* Modal Content */
+.modal-content {
+  	position: relative;
+  	background-color: #8da6b4;
+  	border-radius: 30px;
+  	margin: auto;
+  	padding: 0;
+  	border: 1px solid #888;
+  	width: 65%;
+  	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  	-webkit-animation-name: animatetop;
+  	-webkit-animation-duration: 0.4s;
+  	animation-name: animatetop;
+  	animation-duration: 0.4s;
+}
+
+.modal-content h2 {
+	color: #faf8f6;
+	padding-top: 50px;
+	margin-bottom: 50px;
+}
+
+.modal-body form {
+	margin: 0 auto;
+	width: 81%;
+	color: #faf8f6;
+}
+
+.modal-body label {
+	text-transform: uppercase;
+	font-size: 20px;
+	letter-spacing: 3px;
+	margin-bottom: 10px;
+}
+
+.inputNewTask {
+	background-color: #faf8f6;
+	color: #4a4a4a;
+	font-size: 17px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-right: 20px;
+	padding-left: 20px;
+	margin-bottom: 40px;
+	width: 650px;
+	outline: none;
+	border: none;
+}
+
+
+.modal-body select {
+	width: 400px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-bottom: 40px;
+	padding-right: 20px;
+	padding-left: 20px;
+	border: none;
+}
+
+.submitNewTask {
+	background-color: #e56265;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 50px;
+	padding-right: 50px;
+	color: #faf8f6;
+	border-radius: 30px;
+	outline: none;
+	font-size: 17px;
+	letter-spacing: 1.5px;
+	border: none;
+	cursor: pointer;
+	margin-bottom: 50px;
+}
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: #faf8f6;
+  float: right;
+  padding: 10px 20px 0 0;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.modal-header {
+  padding: 2px 16px;
+/*  background-color: #5cb85c;*/
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-body input:focus {
+	border: none;
+	outline: none;
+}
+
+
+
 
 
