@@ -3,7 +3,7 @@
 }*/
 
 
-/* General for header */
+/* For main App */
 .appContainer {
 	margin: 0 auto;
 	font-family:  'Poppins', sans-serif;
@@ -15,6 +15,18 @@
 .appContent {
 	width: 1200px;
 
+}
+
+/* App button is in task.css*/
+
+.appHeader {
+	display: flex;
+	justify-content: space-between;
+}
+
+.appHeader button {
+	margin-top: 60px;
+	margin-right: 25px;
 }
 
 .appContainer h1 {
@@ -102,13 +114,14 @@
 	font-weight: lighter;
 	text-align: left;
 	margin-top: 20px;
-	margin-bottom: 20px;
 }
 
 
 .cardItem {
 	display: grid;
 	grid-template-columns: 1fr 2fr;
+	margin-bottom: 20px;
+	font-size: 17px;
 }
 
 .cardTitle {
@@ -121,10 +134,22 @@
 	margin: 0;
 }
 
-.card a {
-	/*text-decoration: none;*/
-	color: white;
-	text-transform: uppercase;
-	letter-spacing: 1.2px;
-	color: #e8e8e7;
+.listAction {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	margin-top: 30px;
+	text-align: center;
 }
+
+.card a{
+	text-align: center;
+	font-size: 15px;
+	color: #c5afc5;
+	text-decoration: none;
+	background-color: #faf8f6;
+	border-radius: 10px;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+/* For App Detail */

@@ -12,10 +12,10 @@
 		{% endwith %}
 
 		<div class="appContent">
-			<h1>Applications</h1>
-			{% for assessment in assessments %}
-					{{assessment}}
-			{% endfor %}
+			<div class="appHeader addButton">
+				<h1>Applications</h1>
+				<button class=""></button>
+			</div>
 
 			<div class="appcards">
 				{% for job in jobs %}
@@ -30,9 +30,7 @@
 							<li class="cardItem"><p class="cardTitle">Program</p><p>{{job.program}}</p></li>
 							<li class="cardItem"><p class="cardTitle">Company</p><p>{{job.company}}</p></li>
 							<li class="cardItem"><p class="cardTitle">Deadline</p><p>{{job.deadline}}</p></li>
-							<li><a href="{{url_for('main.job_single', job_id=job.id)}}">Go to this job</a></li>
-							<li><a href="{{url_for('main.job_update', job_id=job.id)}}">Update</a></li>
-							<li><a href="{{url_for('main.job_delete', job_id=job.id)}}">Delete</a></li>
+							<li class="listAction"><a href="{{url_for('main.job_single', job_id=job.id)}}">View</a><a href="{{url_for('main.job_update', job_id=job.id)}}">Edit</a><a href="{{url_for('main.job_delete', job_id=job.id)}}">Delete</a></li>
 							</ul>
 						</div>
 					</div>
