@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="sectionContainer fullContainer">
 	<form method="POST" action="" class="content containAlignCenter loginContent">
 		<h2>Request Password Change</h2>
 		{% with messages = get_flashed_messages() %}
@@ -13,6 +14,8 @@
 		<label for="email">Email</label><br><input type="email" name="email" id="email" class="inputNormal" required><br>
 		<input type="submit" value="Request Password Change" class="submit navSignup" id="submit">
 	</form>
+</div>
+	
 
 
 {% endblock %}
