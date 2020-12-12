@@ -20,7 +20,7 @@
 					</div>
 					<div class="taskItemRec taskIteminner">
 						<p>{{task.item}}</p>
-						<p>{{task.due}}</p>
+						<p>{{task.due.strftime("%m/%d/%Y")}}</p>
 						<p class="complete"><input type="checkbox" name="complete" onclick="window.location.href='{{url_for('main.complete', id = task.id)}}';" value="complete"></p>
 						<button class="edit" onclick="window.location.href='{{url_for('main.task_update', task_id = task.id)}}';"></button>
 						<button class="delete" onclick="window.location.href='{{url_for('main.task_delete', task_id = task.id)}}';"></button>
