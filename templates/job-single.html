@@ -13,13 +13,16 @@
 				</div>
 
 				<div class="appDeadline">
+					<p>Deadline</p>
 					<h2>2020-11-20</h2>
 				</div>
 			</div>
 
+			<div class="appInnerContent">
+
+			<h2>Required Documents</h2>
 			<div class="appDDoc">
-				<h2>Required Documents</h2>
-				<div class="appDRes">
+				<div class="appDRes appDDocIn">
 					<label for="">Resume</label>
 					<input type="checkbox" name="" id="" value=""><br>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -28,7 +31,7 @@
 					consequat.</p>
 				</div>
 
-				<div class="appDcv">
+				<div class="appDcv appDDocIn">
 					<label for="">Cover Letter</label>
 					<input type="checkbox" name="" id="" value=""><br>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -37,7 +40,7 @@
 					consequat.</p>
 				</div>
 
-				<div class="appDTrans">
+				<div class="appDTrans appDDocIn">
 					<label for="">Transcript</label>
 					<input type="checkbox" name="" id="" value=""><br>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -47,40 +50,129 @@
 				</div>
 			</div>
 
+			<h2>Assessments</h2>
 			<div class="appDAssess">
-				<h2>Assessments</h2>
-				<ul>
-					<li class="assessItem">
-						
-					</li>
-				</ul>
+				<div>
+					<!-- for loop starts here -->
+					<div class="assessItem">
+
+						<div class="assessItemTool">
+							<span class="assessItemTitle">Complete</span><input type="checkbox" name="complete" onclick="'';" value="complete">
+							<span class="assessItemTitle and2">Edit</span><button class="appDedit" onclick="window.location.href='';"></button>
+							<span class="assessItemTitle and2">Delete</span><button class="appDdel" onclick="window.location.href='';"></button>
+						</div>
+						<div class="assessItem1st">
+							<p><span class="assessItemTitle">Title</span>First Round Interview</p>
+							<p><span class="assessItemTitle">Time</span>2021-10-21 2:00 PM</p>
+							<p><span class="assessItemTitle">Format</span>Face-to-Face</p>
+							<p><span class="assessItemTitle">Location</span>303E 57th Street, New York, New York</p>
+						</div>
+						<div class="assessItem2nd">
+							<p><span class="assessItemTitle">Notes</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						</div>
+
+					</div>
+					
+				</div>
+
+				<h3>Completed</h3>
+				<div>
+					<div class="assessItem">
+
+						<div class="assessItemTool">
+							<span class="assessItemTitle">Complete</span><input type="checkbox" name="complete" onclick="'';" value="complete">
+							<span class="assessItemTitle and2">Edit</span><button class="appDedit" onclick="window.location.href='';"></button>
+							<span class="assessItemTitle and2">Delete</span><button class="appDdel" onclick="window.location.href='';"></button>
+						</div>
+						<div class="assessItem1st">
+							<p><span class="assessItemTitle">Title</span>First Round Interview</p>
+							<p><span class="assessItemTitle">Time</span>2021-10-21 2:00 PM</p>
+							<p><span class="assessItemTitle">Format</span>Face-to-Face</p>
+							<p><span class="assessItemTitle">Location</span>303E 57th Street, New York, New York</p>
+						</div>
+						<div class="assessItem2nd">
+							<p><span class="assessItemTitle">Notes</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+			<h2>Application Related Tasks</h2>
+			<div class="appDTask">
+				<div>
+					<ul class="taskList">
+						<!-- for loop starts here -->
+						<li class="taskItem">
+							<div class="taskItemTitle taskIteminner">
+								<p>Task</p>
+								<p>Deadline</p>
+								<p class="complete">Checked</p>
+								<p class="complete">Edit</p>
+								<p class="complete">Delete</p>
+								<p class="complete">Detail</p>
+							</div>
+							<div class="taskItemRec taskIteminner">
+								<p>Some Task</p>
+								<p>2012-12-29</p>
+								<p class="complete"><input type="checkbox" name="complete" onclick="window.location.href='';" value="complete"></p>
+								<button class="edit" onclick="window.location.href='';"></button>
+								<button class="delete" onclick="window.location.href='';"></button>
+								<button class="detail" onclick="window.location.href='';"></button>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+				<h3>Completed</h3>
+				<div>
+					<ul class="taskList">
+						<!-- for loop starts here -->
+						<li class="taskItem">
+							<div class="taskItemTitle taskIteminner">
+								<p>Task</p>
+								<p>Deadline</p>
+								<p class="complete">Checked</p>
+								<p class="complete">Edit</p>
+								<p class="complete">Delete</p>
+								<p class="complete">Detail</p>
+							</div>
+							<div class="taskItemRec taskIteminner">
+								<p>Some Task</p>
+								<p>2012-12-29</p>
+								<p class="complete"><input type="checkbox" name="complete" onclick="window.location.href='';" value="complete"></p>
+								<button class="edit" onclick="window.location.href='';"></button>
+								<button class="delete" onclick="window.location.href='';"></button>
+								<button class="detail" onclick="window.location.href='';"></button>
+							</div>
+						</li>
+					</ul>
+				</div>
 			</div>
 			
+			<h2>Actions</h2>
 			<div class="appDTool">
 				<div class="appDToolTitle">
 					<p class="complete">Add Assessment</p>
 					<p class="complete">Add Task</p>
+					<p class="complete">Complete</p>
 					<p class="complete">Edit</p>
 					<p class="complete">Delete</p>
 					<p class="complete">Go Back</p>
 				</div>
 
 				<div class="appDToolTitle">
-					<button class="" onclick="window.location.href='';"></button>
-					<button class="" onclick="window.location.href='';"></button>
-					<button class="" onclick="window.location.href='{{url_for('main.job_update', job_id=job.id)}}';"></button>
-					<button class="" onclick="window.location.href='{{url_for('main.job_delete', job_id=job.id)}}';"></button>
-					<button class="" onclick="window.location.href='{{url_for('main.job')}}';"></button>
+					<button class="appAdd" onclick="window.location.href='';"></button>
+					<button class="appAdd" onclick="window.location.href='';"></button>
+					<button class="appCheck" onclick="window.location.href='';"></button>
+					<button class="dEdit" onclick="window.location.href='{{url_for('main.job_update', job_id=job.id)}}';"></button>
+					<button class="dDelte" onclick="window.location.href='{{url_for('main.job_delete', job_id=job.id)}}';"></button>
+					<button class="dBack" onclick="window.location.href='{{url_for('main.job')}}';"></button>
 				</div>
 			</div>
-
+			</div>
 		</div>
-
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li><a href="{{url_for('main.job')}}">Back</a></li>
 
 	</div>
 
