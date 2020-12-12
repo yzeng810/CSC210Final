@@ -148,6 +148,23 @@ def account_reset():
 		flash('The password and verify password field do not match')
 		return redirect(url_for('main.account'))
 
+@main.route('/assessment/new', methods=['GET','POST'])
+@login_required
+def new_assessment():
+	jobs = Job.query.filter_by(user_id=current_user.id)
+	if request.method == "POST":
+		title = request.form.get('title')
+		time = datetime.strptime(request.form.get('time'), "%Y-%m-%d").date()
+		place = request.form.get('place')
+		iFormat = request.form.get('iFormat')
+		notes = request.form.get('notes')
+		job_id = request.form.get('job_id')
+		assessment = Assessment(title=title, time=time, place=place, iFormat=iFormat, notes=notes, job_id=job_id)
+		db.session.add(assessment)
+		db.session.commit()
+		return redirect(url_for('main.job'))
+	return render_template('create_assessment.html', jobs=jobs)
+
 @main.route('/job/new', methods=['GET','POST'])
 @login_required
 def new_job():
@@ -171,7 +188,8 @@ def new_job():
 @login_required
 def job():
 	jobs = Job.query.filter_by(user_id=current_user.id)
-	return render_template('job.html', jobs=jobs, name=current_user.name)
+	assessments = Assessment.query.filter_by(user_id=current_user.id)
+	return render_template('job.html', jobs=jobs, name=current_user.name, assessments=assessments)
 
 @main.route('/job_single/<int:job_id>')
 @login_required

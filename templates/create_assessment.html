@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="sectionContainer fullContainer">
+	<form method="POST" action="" class="content containAlignCenter loginContent">
+		<h2>New Assessment</h2>
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				<p class="errorMessage">{{ messages[0] }}</p>
+			{% endif %}
+		{% endwith %}
+		<label for="title">Title: </label><br><input type="text" name="title" id="title" class="inputNormal" required><br>
+		<label for="time">Time: </label><br><input type="date" name="time" id="time" class="inputNormal" required><br>
+		<label for="place">Location:</label><br><input type="text" name="place" id="place" class="inputNormal"><br>
+		<label for="iFormat">Format/Type:</label><br><input type="text" name="iFormat" id="iFormat" class="inputNormal"><br>
+		<label for="notes">Notes:</label><br><input type="text" name="notes" id="notes" class="inputNormal"><br>
+		<label for="job">Application: </label><br>
+		{% for job in jobs %}
+		<select name="job" id="job">
+  			<option value="{{job.id}}">{{job.program}}</option>
+		</select>
+		{% endfor %}
+		<input type="submit" value="Create" class="submit navSignup" id="submit">
+	</form>
+</div>
+
+{% endblock %}
