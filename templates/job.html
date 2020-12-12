@@ -3,13 +3,6 @@
 {% block content %}
 
 	<div class="appContainer sectionContainer">
-		{% with messages = get_flashed_messages() %}
-		{% if messages %}
-			{% for msg in messages %}
-				<p class="errorMessage">{{ msg }}</p>
-			{% endfor %}
-		{% endif %}
-		{% endwith %}
 
 		<div class="appContent">
 			<div class="appHeader addButton">
