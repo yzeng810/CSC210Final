@@ -6,10 +6,6 @@
 
 		<div class="appDetailContent">
 
-			<div class="appDGoBack">
-				<button onclick="window.location.href='{{url_for('main.job')}}';"></button>
-			</div>
-
 			<div class="appDHeader">
 				<div class="companyPosition">
 					<h1>Summer Investment Banking Analyst</h1>
@@ -18,25 +14,65 @@
 
 				<div class="appDeadline">
 					<h2>2020-11-20</h2>
-					<p><a href="{{url_for('main.job_update', job_id=job.id)}}">Update</a>/<a href="{{url_for('main.job_delete', job_id=job.id)}}">Delete</a></p>
 				</div>
 			</div>
 
 			<div class="appDDoc">
+				<h2>Required Documents</h2>
 				<div class="appDRes">
-					
+					<label for="">Resume</label>
+					<input type="checkbox" name="" id="" value=""><br>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat.</p>
 				</div>
 
 				<div class="appDcv">
-					
+					<label for="">Cover Letter</label>
+					<input type="checkbox" name="" id="" value=""><br>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat.</p>
 				</div>
 
 				<div class="appDTrans">
-					
+					<label for="">Transcript</label>
+					<input type="checkbox" name="" id="" value=""><br>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat.</p>
 				</div>
 			</div>
+
+			<div class="appDAssess">
+				<h2>Assessments</h2>
+				<ul>
+					<li class="assessItem">
+						
+					</li>
+				</ul>
+			</div>
 			
-			
+			<div class="appDTool">
+				<div class="appDToolTitle">
+					<p class="complete">Add Assessment</p>
+					<p class="complete">Add Task</p>
+					<p class="complete">Edit</p>
+					<p class="complete">Delete</p>
+					<p class="complete">Go Back</p>
+				</div>
+
+				<div class="appDToolTitle">
+					<button class="" onclick="window.location.href='';"></button>
+					<button class="" onclick="window.location.href='';"></button>
+					<button class="" onclick="window.location.href='{{url_for('main.job_update', job_id=job.id)}}';"></button>
+					<button class="" onclick="window.location.href='{{url_for('main.job_delete', job_id=job.id)}}';"></button>
+					<button class="" onclick="window.location.href='{{url_for('main.job')}}';"></button>
+				</div>
+			</div>
 
 		</div>
 
