@@ -22,7 +22,7 @@
 							<ul>
 							<li class="cardItem"><p class="cardTitle">Program</p><p>{{job.program}}</p></li>
 							<li class="cardItem"><p class="cardTitle">Company</p><p>{{job.company}}</p></li>
-							<li class="cardItem"><p class="cardTitle">Deadline</p><p>{{job.deadline}}</p></li>
+							<li class="cardItem"><p class="cardTitle">Deadline</p><p>{{job.deadline.strftime("%m/%d/%Y")}}</p></li>
 							<li class="listAction"><a href="{{url_for('main.job_single', job_id=job.id)}}">View</a><a href="{{url_for('main.job_update', job_id=job.id)}}">Edit</a><a href="{{url_for('main.job_delete', job_id=job.id)}}">Delete</a></li>
 							</ul>
 						</div>
