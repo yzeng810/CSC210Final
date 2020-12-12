@@ -169,7 +169,7 @@ def new_assessment():
 		iFormat = request.form.get('iFormat')
 		notes = request.form.get('notes')
 		job_id = request.form.get('job')
-		assessment = Assessment(title=title, time=time, place=place, iFormat=iFormat, notes=notes, job_id=job_id)
+		assessment = Assessment(complete=False, title=title, time=time, place=place, iFormat=iFormat, notes=notes, job_id=job_id, user_id=current_user.id)
 		db.session.add(assessment)
 		db.session.commit()
 		return redirect(url_for('main.job'))
@@ -220,7 +220,7 @@ def new_job():
 		transcriptNotes = request.form.get('transcriptNotes')
 		onlineFormNotes = request.form.get('onlineFormNotes')
 		job = Job(program=program, company=company, deadline=deadline, resume=False, resumeNotes=resumeNotes, coverletter=False, coverletterNotes=coverletterNotes, 
-			transcript=False, transcriptNotes=transcriptNotes, onlineForm=False, onlineFormNotes=onlineFormNotes, user_id=current_user.id)
+			transcript=False, transcriptNotes=transcriptNotes, onlineForm=False, onlineFormNotes=onlineFormNotes, complete=False, user_id=current_user.id)
 		db.session.add(job)
 		db.session.commit()
 		return redirect(url_for('main.job'))
@@ -231,8 +231,7 @@ def new_job():
 @login_required
 def job():
 	jobs = Job.query.filter_by(user_id=current_user.id)
-	assessments = Assessment.query.all()
-	#assessments = Assessment.query.filter_by(user_id=current_user.id)
+	assessments = Assessment.query.filter_by(user_id=current_user.id)
 	if request.method == "POST":
 		program = request.form.get('program')
 		company = request.form.get('company')
@@ -241,7 +240,7 @@ def job():
 		coverletterNotes = request.form.get('coverletterNotes')
 		transcriptNotes = request.form.get('transcriptNotes')
 		onlineFormNotes = request.form.get('onlineFormNotes')
-		job = Job(program=program, company=company, deadline=deadline, resume=False, resumeNotes=resumeNotes, coverletter=False, coverletterNotes=coverletterNotes, 
+		job = Job(complete=False, program=program, company=company, deadline=deadline, resume=False, resumeNotes=resumeNotes, coverletter=False, coverletterNotes=coverletterNotes, 
 			transcript=False, transcriptNotes=transcriptNotes, onlineForm=False, onlineFormNotes=onlineFormNotes, user_id=current_user.id)
 		db.session.add(job)
 		db.session.commit()
