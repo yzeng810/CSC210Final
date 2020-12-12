@@ -251,8 +251,8 @@ def job():
 @login_required
 def job_single(job_id):
 	job = Job.query.get_or_404(job_id)
-	tasks = Task.query.filter_by(job_id)
-	assessments = Assessment.query.filter_by(job_id)
+	tasks = Task.query.filter_by(job_id=job_id)
+	assessments = Assessment.query.filter_by(job_id=job_id)
 	return render_template('job-single.html', job=job, tasks=tasks, assessments=assessments)
 
 @main.route('/job_update/<int:job_id>', methods=['GET','POST'])
