@@ -174,7 +174,6 @@ box-shadow: 2px 5px 16px 0px #4f4f4f, 5px 5px 15px 5px rgba(0,0,0,0);
 	text-transform: uppercase;
 	font-size: 20px;
 	letter-spacing: 3px;
-	margin-bottom: 10px;
 }
 
 .inputNewTask {
@@ -186,14 +185,15 @@ box-shadow: 2px 5px 16px 0px #4f4f4f, 5px 5px 15px 5px rgba(0,0,0,0);
 	padding-right: 20px;
 	padding-left: 20px;
 	margin-bottom: 40px;
-	width: 650px;
+	margin-top: 5px;
+	width: 100%;
 	outline: none;
 	border: none;
 }
 
 
 .modal-body select {
-	width: 400px;
+	width: 55%;
 	padding-top: 15px;
 	padding-bottom: 15px;
 	margin-bottom: 40px;

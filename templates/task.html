@@ -84,7 +84,7 @@
 						<option value="{{job.id}}">{{job.program}}</option>
 					{% endfor %}
 					</select><br>
-					<input type="submit" value="Create" class="submitNewTask" id="submit">
+					<input type="submit" value="Create" class="submitNewTask" id="submit" onclick="window.location.href='{{url_for('main.new_task')}}';">
       			</form>
     		</div>
 

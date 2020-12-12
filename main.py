@@ -21,12 +21,13 @@ def task():
 	tasks = []
 	completed = []
 	data = Task.query.filter_by(user_id=current_user.id)
+	jobs = Job.query.filter_by(user_id=current_user.id)
 	for task in data:
 		if task.complete == False:
 			tasks.append(task)
 		else:
 			completed.append(task)
-	return render_template('task.html', name=current_user.name, tasks=tasks, completed=completed)
+	return render_template('task.html', name=current_user.name, tasks=tasks, completed=completed, jobs=jobs, id=current_user.id)
 
 @main.route('/task/new', methods=['GET','POST'])
 @login_required
