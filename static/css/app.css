@@ -241,6 +241,8 @@
 	border-radius: 20px;
 	padding: 20px;
 	min-height: 280px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .appDDocIn label {
