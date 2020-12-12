@@ -13,11 +13,11 @@
 		<label for="notes">Notes: </label><br><input type="text" name="notes" id="notes" class="inputNormal" required><br>
 		<label for="due">Deadline: </label><br><input type="date" name="due" id="due" class="inputNormal" required><br>
 		<label for="job">Application: </label><br>
-		{% for job in jobs %}
 		<select name="job" id="job">
+			{% for job in jobs %}
   			<option value="{{job.id}}">{{job.program}}</option>
+  			{% endfor %}
 		</select>
-		{% endfor %}
 		<input type="submit" value="Create" class="submit navSignup" id="submit">
 	</form>
 </div>

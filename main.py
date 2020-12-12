@@ -50,7 +50,7 @@ def new_task():
 		task = Task(item=item, notes=notes, due=due, complete=False, user_id=current_user.id, job_id=job_id)
 		db.session.add(task)
 		db.session.commit()
-		return redirect(url_for('main.task'))
+		return redirect(url_for('main.job_single', job_id = job_id))
 	return render_template('create_task.html', jobs=jobs)
 
 @main.route('/complete/<id>')
@@ -72,6 +72,12 @@ def incomplete(id):
 def task_single(task_id):
 	task = Task.query.get_or_404(task_id)
 	return render_template('task-single.html', task=task)
+
+@main.route('/task_single_job/<int:task_id>')
+@login_required
+def task_single_job(task_id):
+	task = Task.query.get_or_404(task_id)
+	return render_template('task-single-job.html', task=task)
 	
 @main.route('/task_update/<int:task_id>', methods=['GET','POST'])
 @login_required
@@ -91,6 +97,24 @@ def task_update(task_id):
 		return redirect(url_for('main.task_single', task_id=task.id))
 	return render_template('update_task.html', task=task, jobs=jobs)
 
+@main.route('/task_update_job/<int:task_id>', methods=['GET','POST'])
+@login_required
+def task_update_job(task_id):
+	jobs = Job.query.filter_by(user_id=current_user.id)
+	task = Task.query.get_or_404(task_id)
+	if request.method == "POST":
+		item = request.form.get('item')
+		notes = request.form.get('notes')
+		due = datetime.strptime(request.form.get('due'), "%Y-%m-%d").date()
+		job_id = request.form.get('job')
+		task.item = item
+		task.notes = notes
+		task.due = due
+		task.job_id = job_id
+		db.session.commit()
+		return redirect(url_for('main.job_single', job_id=job_id))
+	return render_template('update_task.html', task=task, jobs=jobs)
+
 @main.route('/task_delete/<int:task_id>', methods=['GET','POST'])
 @login_required
 def task_delete(task_id):
@@ -99,6 +123,16 @@ def task_delete(task_id):
 	db.session.commit()
 	flash('Your task has been deleted')
 	return redirect(url_for('main.task'))
+
+@main.route('/task_delete_job/<int:task_id>', methods=['GET','POST'])
+@login_required
+def task_delete_job(task_id):
+	task = Task.query.get_or_404(task_id)
+	job_id = task.job_id
+	db.session.delete(task)
+	db.session.commit()
+	flash('Your task has been deleted')
+	return redirect(url_for('main.job_single', job_id=job_id))
 
 @main.route('/account')
 @login_required
@@ -172,7 +206,7 @@ def new_assessment():
 		assessment = Assessment(complete=False, title=title, time=time, place=place, iFormat=iFormat, notes=notes, job_id=job_id, user_id=current_user.id)
 		db.session.add(assessment)
 		db.session.commit()
-		return redirect(url_for('main.job'))
+		return redirect(url_for('main.job_single', job_id=job_id))
 	return render_template('create_assessment.html', jobs=jobs)
 
 @main.route('/assessment_update/<int:assessment_id>', methods=['GET','POST'])
@@ -195,7 +229,7 @@ def assessment_update(assessment_id):
 		assessment.iFormat = iFormat
 		assessment.job_id = job_id
 		db.session.commit()
-		return redirect(url_for('main.job', assessment_id=assessment.id))
+		return redirect(url_for('main.job_single', job_id=job_id))
 	
 	return render_template('update_assessment.html', jobs=jobs, assessment=assessment)
 
@@ -203,10 +237,11 @@ def assessment_update(assessment_id):
 @login_required
 def assessment_delete(assessment_id):
 	assessment = Assessment.query.get_or_404(assessment_id)
+	job_id = assessment.job_id
 	db.session.delete(assessment)
 	db.session.commit()
 	flash('Your assessment has been deleted')
-	return redirect(url_for('main.job'))
+	return redirect(url_for('main.job_single', job_id=job_id))
 
 @main.route('/assess_complete/<id>')
 def assess_complete(id):

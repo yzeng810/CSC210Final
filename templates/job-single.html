@@ -69,7 +69,7 @@
 				<div>
 					<!-- for loop starts here -->
 					<div class="assessItem">
-
+					{% if incomplete_assessment %}
 						{% for assessment in incomplete_assessment %}
 						<div class="assessItemTool">
 							<span class="assessItemTitle">Complete</span><input type="checkbox" name="complete" onclick="window.location.href='{{url_for('main.assess_complete', id = assessment.id )}}';" value="complete">
@@ -86,6 +86,7 @@
 							<p><span class="assessItemTitle">Notes</span>{{assessment.notes}}</p>
 						</div>
 						{% endfor %}
+					{% endif %}
 					</div>
 					
 				</div>
@@ -133,9 +134,9 @@
 								<p>{{task.item}}</p>
 								<p>{{task.due.strftime("%m/%d/%Y")}}</p>
 								<p class="complete"><input type="checkbox" name="complete" onclick="window.location.href='{{url_for('main.task_complete', id = task.id )}}';" value="complete"></p>
-								<button class="edit" onclick="window.location.href='{{url_for('main.task_update', task_id = task.id)}}';"></button>
-								<button class="delete" onclick="window.location.href='{{url_for('main.task_delete', task_id = task.id)}}';"></button>
-								<button class="detail" onclick="window.location.href='{{url_for('main.task_single', task_id = task.id)}}';"></button>
+								<button class="edit" onclick="window.location.href='{{url_for('main.task_update_job', task_id = task.id)}}';"></button>
+								<button class="delete" onclick="window.location.href='{{url_for('main.task_delete_job', task_id = task.id)}}';"></button>
+								<button class="detail" onclick="window.location.href='{{url_for('main.task_single_job', task_id = task.id)}}';"></button>
 							</div>
 						</li>
 						{% endfor %}

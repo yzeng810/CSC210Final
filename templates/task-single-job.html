@@ -1,0 +1,40 @@
+{% extends "baseLogged.html" %}
+
+{% block content %}
+<div class="taskContainer sectionContainer">
+	<div class="todolist">
+		<h1>{{task.item}}<br><span class="taskTitleSpan">Due on {{task.due.strftime("%Y-%m-%d")}}</span></h1>
+		<div class="taskDetails">
+
+			<div class="taskNotes">
+				<h2>Notes</h2>
+				<p>{{task.notes}}</p>
+			</div>
+
+			<div class="taskDetailAction">
+				<div class="taskDetailActTitle taskDetailAct">
+					{% if task.job_id %}
+					<p class="complete">Related App</p>
+					{% endif %}
+					<p class="complete">Edit</p>
+					<p class="complete">Delete</p>
+					<p class="complete">Go Back</p>
+				</div>
+				<div class="taskDetailAct">
+					{% if task.job_id %}
+						<button class="rappButton" onclick="window.location.href='{{url_for('main.job_single', job_id=task.job_id)}}';"></button>
+					{% endif %}
+					<button class="dEdit" onclick="window.location.href='{{url_for('main.task_update', task_id=task.id)}}';"></button>
+					<button class="dDelte" onclick="window.location.href='{{url_for('main.task_delete', task_id=task.id)}}';"></button>
+					<button class="dBack" onclick="window.location.href='{{url_for('main.job_single', job_id=task.job_id)}}';"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+{% endblock %}
