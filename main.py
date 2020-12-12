@@ -62,7 +62,7 @@ def incomplete(id):
 def task_single(task_id):
 	task = Task.query.get_or_404(task_id)
 	return render_template('task-single.html', task=task)
-
+	
 @main.route('/task_update/<int:task_id>', methods=['GET','POST'])
 @login_required
 def task_update(task_id):
